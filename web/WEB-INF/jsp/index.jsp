@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-    <head>
+    <head>s
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                   <li><a href="">About</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="login.jsp">Login</a></li>
                 <li><a href="">Contact</a></li>
               </ul>
             </div><!--/.nav-collapse -->

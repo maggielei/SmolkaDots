@@ -29,6 +29,7 @@ body {
     transition: background 0.3s;
     background: #97d0c6;
 }
+.form-signin,
 .starter-template {
     padding: 40px 15px;
     text-align: center;
