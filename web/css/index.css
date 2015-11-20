@@ -1,0 +1,45 @@
+@font-face{
+    font-family: 'Abel';
+    src: url('../fonts/Abel-Regular.ttf');
+}
+body {
+    font-family: Abel;
+}
+::-moz-selection { 
+  background: #a3e5da; 
+}
+::selection { 
+  background: #a3e5da; 
+}
+.navbar {
+    border-bottom: none;
+}
+.navbar-inverse{
+    background-color: #75bdb1;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.btn-primary:hover,
+.navbar-inverse .navbar-nav>li>a:hover {
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+    background: #97d0c6;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+}
+.starter-template h1 {
+    font-size: 50px;
+}
+.btn-primary {
+    background-color: #75bdb1;
+    border: none;
+}
