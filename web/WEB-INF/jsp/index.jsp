@@ -40,6 +40,7 @@
             </div><!--/.nav-collapse -->
           </div>
         </nav>
+    
         <div class="container">
           <div class="starter-template">
             <h1>Smolka Dots</h1>
