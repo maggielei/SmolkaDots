@@ -11,7 +11,7 @@
     <link rel="icon" href="img/favicon.ico">
 
     
-    <title>Log In</title>
+    <title>Sign Up</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,17 +44,25 @@
         </nav>
         <div class="container">
             <form class="form-signin" >
-              <h2 class="form-signin-heading">Log In</h2>
+              <h2 class="form-signin-heading">Sign Up</h2>
+              
+                            
+              <label for="inputEmail" class="sr-only">Email Address</label>
+              <input type="emailaddress" id="emailaddress" class="form-control" placeholder="Email Address" required autofocus>
+              
               <label for="inputId" class="sr-only">User ID</label>
-              <input type="userid" id="userid" class="form-control" placeholder="UserID" required autofocus>
+              <input type="userid" id="userid" class="form-control" placeholder="UserID" required>
+              
+              <label for="inputFirstName" class="sr-only">First Name</label>
+              <input type="firstname" id="firstname" class="form-control" placeholder="First Name" required>
+              
+              <label for="inputLastName" class="sr-only">Last Name</label>
+              <input type="lastname" id="lastname" class="form-control" placeholder="Last Name" required>
+              
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+              
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
             </form>
         </div> <!-- /container -->
     </body>

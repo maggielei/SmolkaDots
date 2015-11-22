@@ -3,14 +3,16 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-    <head>s
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
+        <link rel="icon" href="img/favicon.ico">
         <title>Smolka Dots | Online Auction</title>
+        
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -31,7 +33,7 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                  <li><a href="">About</a></li>
+                  <li><a href="signup.jsp">Sign Up</a></li>
                 <li><a href="login.jsp">Login</a></li>
                 <li><a href="">Contact</a></li>
               </ul>
@@ -44,7 +46,7 @@
             <p class="lead">
                 The new and easy way to auction items
                 <br><br>
-                <button type="button" class="btn btn-primary btn-lg btn-block">Sign up</button>
+                <button type="button" id="signup" class="btn btn-primary btn-lg btn-block" >Sign Up</button>
             </p>
           </div>
         </div><!-- /.container -->
@@ -53,7 +55,11 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            document.getElementById("signup").onclick = function () {
+            location.href = "signup.jsp";
+            };
+        </script>
     </body>
 </html>
