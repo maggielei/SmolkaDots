@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Dashboard</title>
+        <title>Customers Listing</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,16 +37,16 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a>Employees<span class="sr-only">(current)</a></span></li>
-                        <li><a href="mcustomerlist.jsp">Customers</a></li>
+                        <li><a href="managerdashboard.jsp">Employees</a></li>
+                        <li class="active"><a href="#">Customers<span class="sr-only">(current)</span></a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
                         <li><a href="msaleslist.jsp">Sales Report</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     
-                    <!--LOAD EMPLOYEE AND CUSTOMER INFO INTO TABLES-->
-                    <h3 class="sub-header">Employees</h3><br>
+                    <!--LOAD CUSTOMER INFO INTO TABLES-->
+                    <h3 class="sub-header">Customers</h3><br>
                     <button type="button" class="btn btn-default btn-primary">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                     </button>
@@ -64,7 +64,7 @@
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th><input type="checkbox" aria-label="..."></th>
-                                    <th>SSN</th>
+                                    <th>CustomerId</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Address</th>
@@ -72,8 +72,8 @@
                                     <th>State</th>
                                     <th>Zip Code</th>
                                     <th>Telephone</th>
-                                    <th>Start Date</th>
-                                    <th>Hourly Rate</th>
+                                    <th>Credit Card #</th>
+                                    <th>Rating</th>
                                 </tr>
                             </thead>
                             <tbody>

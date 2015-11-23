@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Dashboard</title>
+        <title>Items Listing</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,25 +37,16 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a>Employees<span class="sr-only">(current)</a></span></li>
+                        <li><a href="managerdashboard.jsp">Employees</a></li>
                         <li><a href="mcustomerlist.jsp">Customers</a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
-                        <li><a href="msaleslist.jsp">Sales Report</a></li>
+                        <li class="active"><a>Sales Report<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     
-                    <!--LOAD EMPLOYEE AND CUSTOMER INFO INTO TABLES-->
-                    <h3 class="sub-header">Employees</h3><br>
-                    <button type="button" class="btn btn-default btn-primary">
-                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
-                    </button>
-                    <button type="button" class="btn btn-default btn-primary">
-                        <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
-                    </button>
-                    <button type="button" class="btn btn-default btn-primary">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Edit
-                    </button>
+                    <!--LOAD ITEM INFO INTO TABLES-->
+                    <h3 class="sub-header">Sales Report</h3><br>
                     
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -64,16 +55,16 @@
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th><input type="checkbox" aria-label="..."></th>
-                                    <th>SSN</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Address</th>
-                                    <th>City</th>
-                                    <th>State</th>
-                                    <th>Zip Code</th>
-                                    <th>Telephone</th>
-                                    <th>Start Date</th>
-                                    <th>Hourly Rate</th>
+                                    <th>Name</th>
+                                    <th>Poster</th>
+                                    <th>Type</th>
+                                    <th>Year</th>
+                                    <th>Copies Available</th>
+                                    <th>Open Bid</th>
+                                    <th>Bid Increment</th>
+                                    <th>Reserve Price</th>
+                                    <th>Open Date</th>
+                                    <th>CloseTime/Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,3 +114,4 @@
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
+
