@@ -112,6 +112,27 @@
                             </tbody>
                         </table>
                     </div>
+                    <h3 class="sub-header">Revenue Generated</h3><br>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>SSN</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Revenue Generated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,001</td>
+                                    <td>Lorem</td>
+                                    <td>ipsum</td>
+                                    <td>dolor</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
