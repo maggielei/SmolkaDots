@@ -58,7 +58,5 @@ body {
     width: 350px;
     border-bottom: 2px #75bdb1 dashed;
     padding-bottom: 3%;
-}
-.form-signin {
-    margin-top: 0%;
+    margin-bottom: -10%;
 }
