@@ -117,6 +117,8 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <!--11 COLUMNS-->
+                                    <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th>SSN</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
