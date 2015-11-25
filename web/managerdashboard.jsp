@@ -1,4 +1,36 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%              
+                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
+		String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
+		String mysUserID = "malei"; 
+		String mysPassword = "108790364";
+                
+                java.sql.Connection conn = null;
+                Class.forName(mysJDBCDriver).newInstance();
+                java.util.Properties sysprops = System.getProperties();
+                sysprops.put("user", mysUserID);
+                sysprops.put("password", mysPassword);
+
+                //connect to the database
+                conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                System.out.println("Connected successfully to database using JConnect");
+
+                Statement statement = conn.createStatement() ;
+                ResultSet resultset = statement.executeQuery("SELECT * FROM person WHERE SSN = '24685173'");
+                while(resultset.next()){
+                    System.out.println(resultset.getString(1));
+                    System.out.println(resultset.getString(2));
+                    System.out.println(resultset.getString(3));
+                    System.out.println(resultset.getString(4));
+                    System.out.println(resultset.getString(5));
+                    System.out.println(resultset.getString(6));
+                    System.out.println(resultset.getString(7));
+                    System.out.println(resultset.getString(8));
+                    System.out.println(resultset.getString(9));
+                }
+                
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,38 +109,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
-                                </tr>
+                                <%
+                                    for (int row = 1; row < 5; row++) {
+                                        %>
+                                        <tr>
+                                            <td><input type="checkbox" aria-label="..."></td>
+                                            <td>column 1</td>
+                                            <td>column 2</td>
+                                            <td>column 3</td>
+                                            <td>column 4</td>
+                                            <td>column 5</td>
+                                            <td>column 6</td>
+                                            <td>column 7</td>
+                                            <td>column 8</td>
+                                            <td>column 9</td>
+                                            <td>column 10</td>
+                                        </tr>
+                                        <%
+                                    }
+                                %>
                             </tbody>
                         </table>
                     </div>

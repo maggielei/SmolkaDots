@@ -13,7 +13,6 @@ body {
 }
 .navbar {
     border-bottom: none;
-    position: absolute;
 }
 .navbar-inverse{
     background-color: #75bdb1;
@@ -45,10 +44,6 @@ body {
     background-color: #75bdb1;
     border: none;
 }
-/*.radio {
-    text-align: left;
-    padding-left:20px;
-}*/
 .hideMe {
     display: none;
 }
