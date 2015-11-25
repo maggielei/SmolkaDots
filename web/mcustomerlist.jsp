@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -64,7 +65,8 @@
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th><input type="checkbox" aria-label="..."></th>
-                                    <th>CustomerId</th>
+                                    <th>SSN</th>
+                                    <th>CustomerID</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Address</th>
@@ -72,43 +74,54 @@
                                     <th>State</th>
                                     <th>Zip Code</th>
                                     <th>Telephone</th>
+                                    <th>Email</th>
                                     <th>Credit Card #</th>
                                     <th>Rating</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
-                                </tr>
+                                
+                                <%              
+                                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
+                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
+                                String mysUserID = "yromero"; 
+                                String mysPassword = "109210768";
+                
+                                java.sql.Connection conn = null;
+                                Class.forName(mysJDBCDriver).newInstance();
+                                java.util.Properties sysprops = System.getProperties();
+                                sysprops.put("user", mysUserID);
+                                sysprops.put("password", mysPassword);
+                            
+                                //connect to the database
+                                conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                System.out.println("Connected successfully to database using JConnect");
+
+                                Statement statement = conn.createStatement() ;
+                                ResultSet resultset = statement.executeQuery("SELECT P.SSN, C.CustomerID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, C.CreditCardNum, C.Rating FROM Person P, Customer C WHERE P.SSN = C.CustomerSSN");
+                
+                                while(resultset.next()) {
+                
+                                %>
+                                
+                                    <tr>
+                                        <td><input type="checkbox" aria-label="..."></td>
+                                        <td><%=resultset.getString(1)%></td>
+                                        <td><%=resultset.getString(2)%></td>
+                                        <td><%=resultset.getString(3)%></td>
+                                        <td><%=resultset.getString(4)%></td>
+                                        <td><%=resultset.getString(5)%></td>
+                                        <td><%=resultset.getString(6)%></td>
+                                        <td><%=resultset.getString(7)%></td>
+                                        <td><%=resultset.getString(8)%></td>
+                                        <td><%=resultset.getString(9)%></td>
+                                        <td><%=resultset.getString(10)%></td>
+                                        <td><%=resultset.getString(11)%></td>
+                                        <td><%=resultset.getString(12)%></td>  
+                                    </tr>
+                                <%
+                                }
+                                %>
                             </tbody>
                         </table>
                     </div>
