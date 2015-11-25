@@ -1,36 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%              
-                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-		String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
-		String mysUserID = "malei"; 
-		String mysPassword = "108790364";
-                
-                java.sql.Connection conn = null;
-                Class.forName(mysJDBCDriver).newInstance();
-                java.util.Properties sysprops = System.getProperties();
-                sysprops.put("user", mysUserID);
-                sysprops.put("password", mysPassword);
-
-                //connect to the database
-                conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
-                System.out.println("Connected successfully to database using JConnect");
-
-                Statement statement = conn.createStatement() ;
-                ResultSet resultset = statement.executeQuery("SELECT * FROM person WHERE SSN = '24685173'");
-                while(resultset.next()){
-                    System.out.println(resultset.getString(1));
-                    System.out.println(resultset.getString(2));
-                    System.out.println(resultset.getString(3));
-                    System.out.println(resultset.getString(4));
-                    System.out.println(resultset.getString(5));
-                    System.out.println(resultset.getString(6));
-                    System.out.println(resultset.getString(7));
-                    System.out.println(resultset.getString(8));
-                    System.out.println(resultset.getString(9));
-                }
-                
-%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -104,30 +73,58 @@
                                     <th>State</th>
                                     <th>Zip Code</th>
                                     <th>Telephone</th>
+                                    <th>Email</th>
                                     <th>Start Date</th>
                                     <th>Hourly Rate</th>
+                                    <th>Level</th>
+                                    <th>Position</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <%
-                                    for (int row = 1; row < 5; row++) {
-                                        %>
-                                        <tr>
+                                
+                                        
+                            <%              
+                            String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
+                            String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
+                            String mysUserID = "yromero"; 
+                            String mysPassword = "109210768";
+                
+                            java.sql.Connection conn = null;
+                            Class.forName(mysJDBCDriver).newInstance();
+                            java.util.Properties sysprops = System.getProperties();
+                            sysprops.put("user", mysUserID);
+                            sysprops.put("password", mysPassword);
+
+                            //connect to the database
+                            conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                            System.out.println("Connected successfully to database using JConnect");
+
+                            Statement statement = conn.createStatement() ;
+                            ResultSet resultset = statement.executeQuery("SELECT P.SSN, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
+                
+                            while(resultset.next()) {
+                
+                            %>
+                                       
+                                       <tr>
                                             <td><input type="checkbox" aria-label="..."></td>
-                                            <td>column 1</td>
-                                            <td>column 2</td>
-                                            <td>column 3</td>
-                                            <td>column 4</td>
-                                            <td>column 5</td>
-                                            <td>column 6</td>
-                                            <td>column 7</td>
-                                            <td>column 8</td>
-                                            <td>column 9</td>
-                                            <td>column 10</td>
-                                        </tr>
-                                        <%
-                                    }
-                                %>
+                                            <td><%=resultset.getString(1)%></td>
+                                            <td><%=resultset.getString(2)%></td>
+                                            <td><%=resultset.getString(3)%></td>
+                                            <td><%=resultset.getString(4)%></td>
+                                            <td><%=resultset.getString(5)%></td>
+                                            <td><%=resultset.getString(6)%></td>
+                                            <td><%=resultset.getString(7)%></td>
+                                            <td><%=resultset.getString(8)%></td>
+                                            <td><%=resultset.getString(9)%></td>
+                                            <td><%=resultset.getString(10)%></td>
+                                            <td><%=resultset.getString(11)%></td>
+                                            <td><%=resultset.getString(12)%></td>
+                                            <td><%=resultset.getString(13)%></td>
+                                       </tr>
+                            <%
+                            }        
+                            %>
                             </tbody>
                         </table>
                     </div>
