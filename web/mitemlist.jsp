@@ -19,7 +19,7 @@
         <!-- Custom styles for this template -->
         <link href="css/dashboard.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
-    </head> 
+    </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -72,9 +72,9 @@
                                 
                                 <%              
                                 String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
-                                String mysUserID = "yromero"; 
-                                String mysPassword = "109210768";
+                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
+                                String mysUserID = "malei"; 
+                                String mysPassword = "108790364";
                 
                                 java.sql.Connection conn = null;
                                 Class.forName(mysJDBCDriver).newInstance();
@@ -87,7 +87,10 @@
                                 System.out.println("Connected successfully to database using JConnect");
 
                                 Statement statement = conn.createStatement() ;
-                                ResultSet resultset = statement.executeQuery("SELECT I.Name, P.CustomerID, I.Type, I.Year, I.NumCopies, A.MinimumBid, A.BidIncrement, A.ReservePrice, P.PostDate, P.ExpireDate FROM Item I, Post P, Auction A WHERE A.ItemID = I.ItemID AND A.AuctionID = P.AuctionID");
+                                ResultSet resultset = statement.executeQuery("SELECT I.Name, P.CustomerID, I.Type, "
+                                        + "I.Year, I.NumCopies, A.MinimumBid, A.BidIncrement, "
+                                        + "A.ReservePrice, P.PostDate, P.ExpireDate FROM Item I, Post P, Auction A "
+                                        + "WHERE A.ItemID = I.ItemID AND A.AuctionID = P.AuctionID");
                 
                                 while(resultset.next()) {
                 
@@ -107,7 +110,7 @@
                                         <td><%=resultset.getString(10)%></td> 
                                     </tr>
                                 <%
-                                }
+                                    }
                                 %>
                             </tbody>
                         </table>

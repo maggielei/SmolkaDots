@@ -30,7 +30,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">Smolka Dots | Manager View</a>
+                    <a class="navbar-brand">Smolka Dots | Customer Representative View</a>
                 </div>
         </nav>
 
@@ -38,10 +38,8 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="managerdashboard.jsp">Employees</a></li>
-                        <li class="active"><a href="#">Customers<span class="sr-only">(current)</span></a></li>
-                        <li><a href="mitemlist.jsp">Items</a></li>
-                        <li><a href="msaleslist.jsp">Sales Report</a></li>
+                        <li class="active"><a>Customers<span class="sr-only">(current)</span></a></li>
+                        <li><a href="custrepitems.jsp">Items</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -122,28 +120,6 @@
                                 <%
                                     }
                                 %>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <h3 class="sub-header">Revenue Generated</h3><br>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>CustomerId</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Revenue Generated</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
