@@ -81,8 +81,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                        
+                                         
                             <%              
                                 String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
                                 String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
@@ -107,7 +106,7 @@
 
                                     while(resultset.next()) {
 
-                                    %>
+                            %>
                                        
                                         <tr>
                                             <td><input type="checkbox" aria-label="..."></td>
@@ -125,21 +124,21 @@
                                             <td><%=resultset.getString(12)%></td>
                                             <td><%=resultset.getString(13)%></td>
                                         </tr>    
-                                <%
+                            <%
                                     }        
                                 }
-                            catch(Exception e) {
-                                e.printStackTrace();
-                                out.print(e.toString());
-                            }
-                            finally {
-                                try {
-                                    conn.close();
+                                catch(Exception e) {
+                                    e.printStackTrace();
+                                    out.print(e.toString());
                                 }
-                                catch(Exception ee){
-                                    {};
+                                finally {
+                                    try {
+                                        conn.close();
+                                    }
+                                    catch(Exception ee){
+                                        {};
+                                    }
                                 }
-                            }
                             %>
                             </tbody>
                         </table>
