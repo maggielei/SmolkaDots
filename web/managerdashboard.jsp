@@ -84,49 +84,50 @@
                                 
                                         
                             <%              
-                            String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                            String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
-                            String mysUserID = "yromero"; 
-                            String mysPassword = "109210768";
-                
-                            java.sql.Connection conn = null;
+                                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
+                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
+                                String mysUserID = "malei"; 
+                                String mysPassword = "108790364";
+                    
+                                java.sql.Connection conn = null;
                             
-                            try {
-                                Class.forName(mysJDBCDriver).newInstance();
-                                java.util.Properties sysprops = System.getProperties();
-                                sysprops.put("user", mysUserID);
-                                sysprops.put("password", mysPassword);
+                                try {
+                                
+                                    Class.forName(mysJDBCDriver).newInstance();
+                                    java.util.Properties sysprops = System.getProperties();
+                                    sysprops.put("user", mysUserID);
+                                    sysprops.put("password", mysPassword);
 
-                                //connect to the database
-                                conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
-                                System.out.println("Connected successfully to database using JConnect");
+                                    //connect to the database
+                                    conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                    System.out.println("Connected successfully to database using JConnect");
 
-                                Statement statement = conn.createStatement() ;
-                                ResultSet resultset = statement.executeQuery("SELECT P.SSN, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
-                
-                                while(resultset.next()) {
-                
-                                %>
+                                    Statement statement = conn.createStatement() ;
+                                    ResultSet resultset = statement.executeQuery("SELECT P.SSN, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID"); 
+
+                                    while(resultset.next()) {
+
+                                    %>
                                        
-                                            <tr>
-                                                <td><input type="checkbox" aria-label="..."></td>
-                                                <td><%=resultset.getString(1)%></td>
-                                                <td><%=resultset.getString(2)%></td>
-                                                <td><%=resultset.getString(3)%></td>
-                                                <td><%=resultset.getString(4)%></td>
-                                                <td><%=resultset.getString(5)%></td>
-                                                <td><%=resultset.getString(6)%></td>
-                                                <td><%=resultset.getString(7)%></td>
-                                                <td><%=resultset.getString(8)%></td>
-                                                <td><%=resultset.getString(9)%></td>
-                                                <td><%=resultset.getString(10)%></td>
-                                                <td><%=resultset.getString(11)%></td>
-                                                <td><%=resultset.getString(12)%></td>
-                                                <td><%=resultset.getString(13)%></td>
-                                            </tr>    
+                                        <tr>
+                                            <td><input type="checkbox" aria-label="..."></td>
+                                            <td><%=resultset.getString(1)%></td>
+                                            <td><%=resultset.getString(2)%></td>
+                                            <td><%=resultset.getString(3)%></td>
+                                            <td><%=resultset.getString(4)%></td>
+                                            <td><%=resultset.getString(5)%></td>
+                                            <td><%=resultset.getString(6)%></td>
+                                            <td><%=resultset.getString(7)%></td>
+                                            <td><%=resultset.getString(8)%></td>
+                                            <td><%=resultset.getString(9)%></td>
+                                            <td><%=resultset.getString(10)%></td>
+                                            <td><%=resultset.getString(11)%></td>
+                                            <td><%=resultset.getString(12)%></td>
+                                            <td><%=resultset.getString(13)%></td>
+                                        </tr>    
                                 <%
-                                }        
-                            }
+                                    }        
+                                }
                             catch(Exception e) {
                                 e.printStackTrace();
                                 out.print(e.toString());
