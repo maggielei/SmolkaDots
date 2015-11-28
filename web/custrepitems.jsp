@@ -53,7 +53,7 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input type="checkbox" aria-label="..."></th>
+                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>
@@ -95,7 +95,7 @@
                                 %>
                                 
                                     <tr>
-                                        <td><input type="checkbox" aria-label="..."></td>
+                                        <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                         <td><%=resultset.getString(1)%></td>
                                         <td><%=resultset.getString(2)%></td>
                                         <td><%=resultset.getString(3)%></td>
@@ -122,5 +122,6 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/sharedFunctionality.js"></script>
     </body>
 </html>

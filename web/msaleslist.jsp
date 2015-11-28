@@ -54,7 +54,7 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input type="checkbox" aria-label="..."></th>
+                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>
@@ -69,36 +69,12 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
+                                    <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                     <td>1,001</td>
                                     <td>Lorem</td>
                                     <td>ipsum</td>
                                     <td>dolor</td>
                                     <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" aria-label="..."></td>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -112,6 +88,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/sharedFunctionality.js"></script>
     </body>
 </html>
 
