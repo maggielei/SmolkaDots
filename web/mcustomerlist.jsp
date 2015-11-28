@@ -81,13 +81,15 @@
                             </thead>
                             <tbody>
                                 
-                                <%              
-                                    String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                                    String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
-                                    String mysUserID = "malei"; 
-                                    String mysPassword = "108790364";
+                            <%              
+                                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
+                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
+                                String mysUserID = "malei"; 
+                                String mysPassword = "108790364";
 
-                                    java.sql.Connection conn = null;
+                                java.sql.Connection conn = null;
+                                    
+                                try {
                                     Class.forName(mysJDBCDriver).newInstance();
                                     java.util.Properties sysprops = System.getProperties();
                                     sysprops.put("user", mysUserID);
@@ -96,14 +98,12 @@
                                     //connect to the database
                                     conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
                                     System.out.println("Connected successfully to database using JConnect");
-
+                                        
                                     Statement statement = conn.createStatement() ;
                                     ResultSet resultset = statement.executeQuery("SELECT P.SSN, C.CustomerID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, C.CreditCardNum, C.Rating FROM Person P, Customer C WHERE P.SSN = C.CustomerSSN");
 
                                     while(resultset.next()) {
-
                                 %>
-                                
                                     <tr>
                                         <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                         <td><%=resultset.getString(1)%></td>
@@ -121,7 +121,20 @@
                                     </tr>
                                 <%
                                     }
-                                %>
+                                }
+                                catch(Exception e) {
+                                    e.printStackTrace();
+                                    out.print(e.toString());
+                                }
+                                finally {
+                                    try {
+                                        conn.close();
+                                    }   
+                                    catch(Exception ee){
+                                        {};
+                                    }
+                                } 
+                            %>
                             </tbody>
                         </table>
                     </div>
