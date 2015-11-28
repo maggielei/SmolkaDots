@@ -70,9 +70,9 @@
                                 
                             <%              
                                 String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
-                                String mysUserID = "malei"; 
-                                String mysPassword = "108790364";
+                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
+                                String mysUserID = "yromero"; 
+                                String mysPassword = "109210768";
                 
                                 java.sql.Connection conn = null;
                                 

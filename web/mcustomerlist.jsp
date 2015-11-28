@@ -64,7 +64,7 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input id="selectAll"type="checkbox" aria-label="..."></th>
+                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>SSN</th>
                                     <th>CustomerID</th>
                                     <th>First Name</th>

@@ -9,8 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
-
-    
+  
     <title>Log In</title>
 
     <!-- Bootstrap core CSS -->
@@ -19,7 +18,6 @@
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -44,18 +42,18 @@
         </nav>
         
         <div class="container">
-            <form class="form-signin" >
+            <form name="myForm" action="validation.jsp" method="post" class = "form-signin">
               <h2 class="form-signin-heading">Log In</h2>
               <label for="inputId" class="sr-only">User ID</label>
-              <input type="userid" id="userid" class="form-control" placeholder="UserID" required autofocus>
+              <input type="userid" id="userid" name = "userid" class="form-control" placeholder="UserID" required autofocus>
               <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required>
               <div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return javascript:myForm.submit();"> Log In</button>
             </form>
         </div> <!-- /container -->
     </body>
