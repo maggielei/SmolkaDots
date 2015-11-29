@@ -55,40 +55,67 @@
             conn = java.sql.DriverManager.getConnection(mysURL,sysprops);
             System.out.println("Connected successfully to database using JConnect");
             
+            conn.setAutoCommit(false);
+            
             java.sql.Statement stmt1 = conn.createStatement();
             java.sql.Statement stmt2 = conn.createStatement();
             
             if(!employeeID.isEmpty()) {
-                stmt1.executeUpdate("INSERT into Person values('"+employeeSSN+"', "
+                try {
+                    stmt1.executeUpdate("INSERT into Person values('"+employeeSSN+"', "
                         + "'"+lastName+"', '"+firstName+"', '"+address+"', '"+city+"', "
                         + "'"+state+"', '"+zipCode+"', '"+telephone+"', '"+email+"')");
-                stmt2.executeUpdate("INSERT into Employee values('"+employeeSSN+"', "
+                    stmt2.executeUpdate("INSERT into Employee values('"+employeeSSN+"', "
                         + "'"+startDate+"', '"+hourlyRate+"', '"+level+"', '"+position+"', "
                         + "'"+password+"', '"+employeeID+"')");
-                stmt1.close();
-                stmt2.close();
+                    stmt1.close();
+                    stmt2.close();
+                    conn.commit();
+                    %>
+                    User has been added!
+                    <a href="index.htm"><font color="Blue">Home</font></a>
+                    <%
+                }
+                catch(Exception e) {
+                    conn.rollback();
+                    e.printStackTrace();
+                    out.print("There is an error with the values you are trying to insert. Please see the description below and try again.");
+                    out.print("<BR>");
+                    out.print("<BR>");
+                    out.print(e.toString()); 
+                }
             }
             else {
-                stmt1.executeUpdate("INSERT into Person values('"+customerSSN+"', "
+                try {
+                    stmt1.executeUpdate("INSERT into Person values('"+customerSSN+"', "
                         + "'"+custLastName+"', '"+custFirstName+"', '"+custAddress+"', '"+custCity+"', "
                         + "'"+custState+"', '"+custZipCode+"', '"+custTelephone+"', '"+custEmail+"')");
-                stmt2.executeUpdate("INSERT into Customer values('"+customerSSN+"', "
+                    stmt2.executeUpdate("INSERT into Customer values('"+customerSSN+"', "
                         + "'"+customerID+"', '"+creditCard+"', '0' , '"+custPassword+"')");
-                stmt1.close();
-                stmt2.close();
-            }
-            
-            %>
-                User has been added!
-                <a href="index.htm"><font color="Blue">Home</font></a>
-            <%  
+                    stmt1.close();
+                    stmt2.close();
+                    conn.commit();
+                    %>
+                    User has been added!
+                    <a href="index.htm"><font color="Blue">Home</font></a>
+                    <%
+                }
+                catch(Exception f) {
+                    conn.rollback();
+                    f.printStackTrace();
+                    out.print("There is an error with the values you are trying to insert. Please see the description below and try again.");
+                    out.print("<BR>");
+                    out.print("<BR>");
+                    out.print(f.toString());
+                }
+            }  
         }
-        catch(Exception e) {
-            e.printStackTrace();
-            out.print("There is an error with the values you are trying to insert. Please see the description below and try again.");
+        catch(Exception g) {
+            g.printStackTrace();
+            out.print("There is an error. Please see the description below and try again.");
             out.print("<BR>");
             out.print("<BR>");
-            out.print(e.toString()); 
+            out.print(g.toString()); 
         }
         finally {
            try{conn.close();}catch(Exception ee){}; 
