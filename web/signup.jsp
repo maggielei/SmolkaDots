@@ -19,15 +19,6 @@
         <link href="css/login.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
         
-        <script language="javascript" type="text/javascript">
-            function Position_getVal() {
-                if (document.getElementByName('inlineRadioOptions').value) {
-                    value = document.getElementByName('inlineRadioOptions').value;
-                }
-                return value;
-            }
-        </script>
-        
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
