@@ -6,6 +6,14 @@
 //CHECKBOXES
 $(document).ready(function(){ 
     $("#selectAll").change(function(){
-      $(".checkboxes").prop('checked', $(this).prop("checked"));
+        $(".checkboxes").prop('checked', $(this).prop("checked"));
     });
 });
+//SHOW ADD FORMS
+function showAddUserForm() {
+    $(".addUserForm").show("fast");
+}
+//HIDE ADD FORMS
+function hideAddUserForm() {
+    $(".addUserForm").hide("fast");
+}

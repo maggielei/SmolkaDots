@@ -73,7 +73,7 @@
                     conn.commit();
                     %>
                     User has been added!
-                    <a href="index.htm"><font color="Blue">Home</font></a>
+                    <a href="login.jsp"><font color="Blue">Home</font></a>
                     <%
                 }
                 catch(Exception e) {
@@ -97,7 +97,7 @@
                     conn.commit();
                     %>
                     User has been added!
-                    <a href="index.htm"><font color="Blue">Home</font></a>
+                    <a href="login.jsp"><font color="Blue">Home</font></a>
                     <%
                 }
                 catch(Exception f) {
