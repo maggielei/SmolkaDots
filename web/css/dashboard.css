@@ -112,3 +112,10 @@ body {
     border: 2px dashed #97d0c6;
     padding: 10px;
 }
+.editUser {
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px dashed #97d0c6;
+    padding: 10px;
+}
