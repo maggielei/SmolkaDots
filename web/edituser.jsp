@@ -57,7 +57,7 @@
                     %>
                     <script type="text/javascript">
                         function goBack() {
-                            history.go(-1);
+                            history.go(-2);
                         }
                         window.onload = goBack();
                     </script>  

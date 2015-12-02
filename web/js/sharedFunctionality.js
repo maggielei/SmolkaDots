@@ -19,14 +19,18 @@ function showDeleteUserForm() {
 function hideDeleteUserForm() {
     $(".deleteUserForm").hide("fast");
 }
-
-//SHOW EDIT USER DROPDOWN
+//SHOW EDIT USER FORM
 function showEditUserForm() {
     $(".editUser").show("fast");
 }
-
-// HIDE EDIT USER DROPDOWN
+//HIDE EDIT USER FORM
 function hideEditUserForm() {
     $(".editUser").hide("fast");
 }
-
+//RECORD SALE FORM
+function showRecordSaleForm(){
+    $(".recordSaleForm").show("fast");
+}
+function hideRecordSaleForm(){
+    $(".recordSaleForm").hide("fast");
+}

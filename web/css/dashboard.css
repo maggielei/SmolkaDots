@@ -107,6 +107,7 @@ body {
 }
 .addUserForm,
 .editUser,
+.recordSaleForm,
 .deleteUserForm {
     display: none;
     margin-top: 20px;

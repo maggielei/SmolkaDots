@@ -47,7 +47,25 @@
                     
                     <!--LOAD ITEM INFO INTO TABLES-->
                     <h3 class="sub-header">Items</h3><br>
-                    
+                    <button type="button" class="btn btn-default btn-primary" onclick="showRecordSaleForm()">
+                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Record a Sale
+                    </button>
+                    <!--START RECORD SALE FORM-->
+                    <div class="recordSaleForm">
+                        <form class="form-inline" name="recordSaleForm" action="recordSale.jsp" method="post">
+                            <label for="inputItemId" class="sr-only">Item ID</label>
+                            <input id="itemId" name = "itemid" class="form-control" placeholder="Item ID" required>
+                            
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;Update
+                            </button>
+                            
+                            <button type="submit" class="btn btn-default btn-primary" onclick="hideRecordSaleForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END RECORD SALE FORM-->
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

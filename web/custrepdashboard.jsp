@@ -98,7 +98,7 @@
                             <label for="inputPosition" class="sr-only">Position</label>
                             <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
 
-                            <button type="button" class="btn btn-default btn-primary" type="submit" onclick="return document.userform.submit();">
+                            <button class="btn btn-default btn-primary" type="submit" >
                                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                             </button>
                             <button type="button" class="btn btn-default btn-primary" onclick="hideAddUserForm()">
@@ -116,7 +116,7 @@
                             <label for="inputPosition" class="sr-only">Position</label>
                             <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
                             
-                            <button type="button" class="btn btn-default btn-primary" onclick="return document.deleteUserForm.submit();">
+                            <button type="submit" class="btn btn-default btn-primary">
                                 <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                             </button>
                             
