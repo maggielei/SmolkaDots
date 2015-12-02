@@ -54,9 +54,6 @@
                     <button type="button" class="btn btn-default btn-primary" onclick="showDeleteUserForm()">
                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                     </button>
-                    <button type="button" class="btn btn-default btn-primary">
-                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Edit
-                    </button>
 
                     <!--ADD CUSTOMER FORM-->
                     <div class="addUserForm">
