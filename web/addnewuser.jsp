@@ -39,7 +39,7 @@
     String mysUserID = "yromero"; 
     String mysPassword = "109210768";
        	
-    if(((employeeSSN == null) || (customerSSN == null)) && ((employeeID == null) || (customerID == null)) && (password == null)) {
+    if(((employeeSSN == null) || (customerSSN == null)) && ((employeeID == null) || (customerID == null)) && (password == null) && (custPassword == null)) {
         response.sendRedirect("signup.jsp");
     }
     else {
@@ -60,7 +60,7 @@
             java.sql.Statement stmt1 = conn.createStatement();
             java.sql.Statement stmt2 = conn.createStatement();
             
-            if(!employeeID.isEmpty()) {
+            if(employeeID != null) {
                 try {
                     stmt1.executeUpdate("INSERT into Person values('"+employeeSSN+"', "
                         + "'"+lastName+"', '"+firstName+"', '"+address+"', '"+city+"', "

@@ -113,6 +113,8 @@ body {
     padding: 10px;
 }
 .editUser {
+}
+.deleteUserForm {
     display: none;
     margin-top: 20px;
     margin-bottom: 20px;

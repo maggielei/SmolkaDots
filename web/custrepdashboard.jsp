@@ -39,6 +39,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li class="active"><a>Customers<span class="sr-only">(current)</span></a></li>
+                        <li><a href="custrepemployeelist.jsp">Employees</a></li>
                         <li><a href="custrepitems.jsp">Items</a></li>
                     </ul>
                 </div>
@@ -46,23 +47,91 @@
                     
                     <!--LOAD CUSTOMER INFO INTO TABLES-->
                     <h3 class="sub-header">Customers</h3><br>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showAddUserForm()">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                     </button>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showDeleteUserForm()">
                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                     </button>
                     <button type="button" class="btn btn-default btn-primary">
                         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Edit
                     </button>
-                    
+                    <!--ADD CUSTOMER FORM-->
+                    <div class="addUserForm">
+                        <form class="form-inline" name="userform" action="addnewuser.jsp" method="post">
+                            <label for="inputSSN" class="sr-only">Customer SSN</label>
+                            <input type="custssn" name="custssn" id="custssn" class="form-control" placeholder="Social Security #" required>
+
+                            <label for="inputId" class="sr-only">Customer ID</label>
+                            <input type="custid" name="custid" id="custid" class="form-control" placeholder="CustomerID" required>
+
+                            <label for="inputFirstName" class="sr-only">First Name</label>
+                            <input type="firstName" name="custfirstname" id="firstName" class="form-control" placeholder="First Name" required>
+
+                            <label for="inputLastName" class="sr-only">Last Name</label>
+                            <input type="lastName" name="custlastname" id="lastName" class="form-control" placeholder="Last Name" required>
+
+                            <label for="inputAddress" class="sr-only">Address</label>
+                            <input type="address" name="custaddress" id="address" class="form-control" placeholder="Address" required>
+
+                            <label for="inputCity" class="sr-only">City</label>
+                            <input type="city" name="custcity" id="city" class="form-control" placeholder="City" required>
+
+                            <label for="inputState" class="sr-only">State</label>
+                            <input type="state" name="custstate" id="state" class="form-control" placeholder="State" required>
+
+                            <label for="inputZip" class="sr-only">Zip Code</label>
+                            <input type="custzipCode" name="custzipcode" id="custzipCode" class="form-control" placeholder="Zip Code" required>
+
+                            <label for="inputTelephone" class="sr-only">Telephone</label>
+                            <input type="telephone" name="custtelephone" id="telephone" class="form-control" placeholder="Telephone #" required>
+
+                            <label for="inputZip" class="sr-only">Credit Card</label>
+                            <input type="creditCard" name="creditcard" id="creditCard" class="form-control" placeholder="Credit Card #" required>
+
+                            <label for="inputEmail" class="sr-only">Email Address</label>
+                            <input type="emailAddress" name="custemail" id="emailAddress" class="form-control" placeholder="Email Address" required>
+
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" name="custpassword" id="password" class="form-control" placeholder="Password" required>
+                            
+                            <label for="inputPosition" class="sr-only">Position</label>
+                            <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
+
+                            <button type="button" class="btn btn-default btn-primary" type="submit" onclick="return document.userform.submit();">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
+                            </button>
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideAddUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END ADD USER FORM-->
+                    <!--START DELETE USER FORM-->
+                    <div class="deleteUserForm">
+                        <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
+                            <label for="inputSSN" class="sr-only">SSN</label>
+                            <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
+
+                            <label for="inputPosition" class="sr-only">Position</label>
+                            <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
+                            
+                            <button type="button" class="btn btn-default btn-primary" onclick="return document.deleteUserForm.submit();">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
+                            </button>
+                            
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideDeleteUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END DELETE USER FORM-->
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>SSN</th>
                                     <th>CustomerID</th>
                                     <th>First Name</th>
@@ -102,7 +171,6 @@
                                         while(resultset.next()) {
                                 %>
                                     <tr>
-                                        <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                         <td><%=resultset.getString(1)%></td>
                                         <td><%=resultset.getString(2)%></td>
                                         <td><%=resultset.getString(3)%></td>

@@ -39,6 +39,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="custrepdashboard.jsp">Customers</a></li>
+                        <li><a href="custrepemployeelist.jsp">Employees</a></li>
                         <li class="active"><a>Items<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
@@ -53,7 +54,6 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>
@@ -96,7 +96,6 @@
                 
                             %>  
                                 <tr>
-                                    <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                     <td><%=resultset.getString(1)%></td>
                                     <td><%=resultset.getString(2)%></td>
                                     <td><%=resultset.getString(3)%></td>

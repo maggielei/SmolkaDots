@@ -69,7 +69,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                     <td>1,001</td>
                                     <td>Lorem</td>
                                     <td>ipsum</td>
