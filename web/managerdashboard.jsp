@@ -119,7 +119,7 @@
                 <!--START DELETE USER FORM-->
                 <div class="deleteUserForm">
                     <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
-                        <label for="inputSSN" class="sr-only">SSN</label>
+                        <label>Enter the SSN to delete:<br></label>
                         <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
                        
                         <label for="inputPosition" class="sr-only">Position</label>
@@ -137,8 +137,8 @@
                 <!--START EDIT USER FORM-->
                 <div class="editUser">
                     <form class="form-inline" name="editUserForm" action="edituserform.jsp" method="post">
-                        <label for="SSN" class="sr-only">SSN</label>
-                        <input id="ssn" name="ssn" class="form-control" placeholder="SSN" required>
+                        <label>Enter the SSN to edit:<br></label>
+                        <input id="ssn" name="ssn" class="form-control" placeholder="Social Security #" required>
                             
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Edit
