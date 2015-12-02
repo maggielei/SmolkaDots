@@ -17,3 +17,13 @@ function showAddUserForm() {
 function hideAddUserForm() {
     $(".addUserForm").hide("fast");
 }
+
+//SHOW EDIT USER DROPDOWN
+function showEditUser() {
+    $(".editUser").show("fast");
+}
+
+// HIDE EDIT USER DROPDOWN
+function hideEditUser() {
+    $(".editUser").hide("fast");
+}
