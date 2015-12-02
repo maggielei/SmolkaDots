@@ -141,7 +141,7 @@
                         <input id="ssn" name="ssn" class="form-control" placeholder="Social Security #" required>
                             
                         <button type="submit" class="btn btn-default btn-primary">
-                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Edit
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Edit
                         </button>
                         <button type="button" class="btn btn-default btn-primary" onclick="hideEditUserForm()">
                             <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
