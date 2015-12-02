@@ -17,3 +17,11 @@ function showAddUserForm() {
 function hideAddUserForm() {
     $(".addUserForm").hide("fast");
 }
+//SHOW DELETE FORMS
+function showDeleteUserForm() {
+    $(".deleteUserForm").show("fast");
+}
+//HIDE DELETE FORMS
+function hideDeleteUserForm() {
+    $(".deleteUserForm").hide("fast");
+}
