@@ -53,7 +53,7 @@
                     <button type="button" class="btn btn-default btn-primary" onclick="showAddUserForm()">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                     </button>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showDeleteUserForm()">
                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                     </button>
                     <button type="button" class="btn btn-default btn-primary">
@@ -116,13 +116,27 @@
                     </form>
                 </div>
                 <!--END EMPLOYEE FORM-->
+                <!--START DELETE USER FORM-->
+                <div class="deleteUserForm">
+                    <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
+                        <label for="inputSSN" class="sr-only">SSN</label>
+                        <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
+                        
+                        <button type="button" class="btn btn-default btn-primary" onclick="return document.deleteUserForm.submit();">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
+                        </button>
+                        <button type="button" class="btn btn-default btn-primary" onclick="hideDeleteUserForm()">
+                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                        </button>
+                    </form>
+                </div>
+                <!--END DELETE USER FORM-->
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <!--11 COLUMNS-->
                                 <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                <th><input type="checkbox" aria-label="..." id="selectAll"></th>
                                 <th>SSN</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -166,7 +180,6 @@
 
                             %>
                             <tr>
-                                <td><input class="checkboxes"type="checkbox" aria-label="..."></td>
                                 <td><%=resultset.getString(1)%></td>
                                 <td><%=resultset.getString(2)%></td>
                                 <td><%=resultset.getString(3)%></td>

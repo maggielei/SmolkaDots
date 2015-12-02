@@ -53,7 +53,6 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>
@@ -96,7 +95,6 @@
                 
                             %>  
                                 <tr>
-                                    <td><input class="checkboxes" type="checkbox" aria-label="..."></td>
                                     <td><%=resultset.getString(1)%></td>
                                     <td><%=resultset.getString(2)%></td>
                                     <td><%=resultset.getString(3)%></td>

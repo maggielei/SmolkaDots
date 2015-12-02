@@ -3,12 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//CHECKBOXES
-$(document).ready(function(){ 
-    $("#selectAll").change(function(){
-        $(".checkboxes").prop('checked', $(this).prop("checked"));
-    });
-});
 //SHOW ADD FORMS
 function showAddUserForm() {
     $(".addUserForm").show("fast");
@@ -16,4 +10,12 @@ function showAddUserForm() {
 //HIDE ADD FORMS
 function hideAddUserForm() {
     $(".addUserForm").hide("fast");
+}
+//SHOW DELETE FORMS
+function showDeleteUserForm() {
+    $(".deleteUserForm").show("fast");
+}
+//HIDE DELETE FORMS
+function hideDeleteUserForm() {
+    $(".deleteUserForm").hide("fast");
 }
