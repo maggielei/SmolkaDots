@@ -115,3 +115,6 @@ body {
     border: 2px dashed #97d0c6;
     padding: 10px;
 }
+.thumbnail img{
+    height: 150px;
+}

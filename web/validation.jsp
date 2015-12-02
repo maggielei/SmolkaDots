@@ -33,19 +33,19 @@
                 java.sql.ResultSet rs = stmt1.executeQuery("SELECT * FROM Employee E, Person P WHERE P.SSN = E.EmployeeID AND E.Position = 'Manager' AND E.UserID='"+username+"' AND E.Password='"+userpasswd+"'");
                 if (rs.next()) {
                     // login success
-                    session.putValue("login",username);
+                    session.setAttribute("login",username);
                     response.sendRedirect("managerdashboard.jsp");
                 }
                 else {
                     rs = stmt1.executeQuery("SELECT * FROM Employee E, Person P WHERE P.SSN = E.EmployeeID AND E.Position = 'Customer Representative' AND E.UserID='"+username+"' AND E.Password='"+userpasswd+"'");
                     if(rs.next()) {
-                        session.putValue("login", username);
+                        session.setAttribute("login", username);
                         response.sendRedirect("custrepdashboard.jsp");
                     }
                     else {
                         rs = stmt1.executeQuery("SELECT * FROM Customer C, Person P WHERE P.SSN = C.CustomerSSN AND C.CustomerID='"+username+"' AND C.Password='"+userpasswd+"'");
                         if(rs.next()) {
-                            session.putValue("login", username);
+                            session.setAttribute("login", username);
                             response.sendRedirect("customerdashboard.jsp");
                         }
                         else {
