@@ -72,8 +72,12 @@
                     stmt2.close();
                     conn.commit();
                     %>
-                    User has been added!
-                    <a href="login.jsp"><font color="Blue">Home</font></a>
+                    <script type="text/javascript">
+                        function goBack() {
+                            history.go(-1);
+                        }
+                        window.onload = goBack();
+                    </script>  
                     <%
                 }
                 catch(Exception e) {
@@ -96,8 +100,12 @@
                     stmt2.close();
                     conn.commit();
                     %>
-                    User has been added!
-                    <a href="login.jsp"><font color="Blue">Home</font></a>
+                    <script type="text/javascript">
+                        function goBack() {
+                            history.go(-1);
+                        }
+                        window.onload = goBack();
+                    </script>  
                     <%
                 }
                 catch(Exception f) {

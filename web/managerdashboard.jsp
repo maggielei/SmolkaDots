@@ -137,8 +137,8 @@
                 <!--START EDIT USER FORM-->
                 <div class="editUser">
                     <form class="form-inline" name="editUserForm" action="edituserform.jsp" method="post">
-                        <label for="inputUserId" class="sr-only">UserID</label>
-                        <input id="userid" name="userid" class="form-control" placeholder="UserId" required>
+                        <label for="SSN" class="sr-only">SSN</label>
+                        <input id="ssn" name="ssn" class="form-control" placeholder="SSN" required>
                             
                         <button type="button" class="btn btn-default btn-primary" onclick="return document.editUserForm.submit();">
                             <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Edit

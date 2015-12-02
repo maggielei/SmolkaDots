@@ -39,18 +39,25 @@
         </nav>   
         
         <div class="container">
-            <form name="myForm" action="edituser.jsp" method="post" class = "form-signin">
+            <form name="myForm" action="edituser.jsp" method="post" class="form-signin">
                 <h2 class="form-signin-heading">Edit User</h2>
                 <%
-                    String userID = request.getParameter("userid");
+                    String ssn = request.getParameter("ssn");
                     String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
                     String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
                     String mysUserID = "yromero"; 
                     String mysPassword = "109210768";
     	
-                    if (userID!= null) {
-                        if (userID.trim().equals("")) {
-                            response.sendRedirect("managerdashboard.jsp");
+                    if (ssn!= null) {
+                        if (ssn.trim().equals("")) {
+                            %>
+                            <script type="text/javascript">
+                                function goBack() {
+                                history.go(-1);
+                            }
+                            window.onload = goBack();
+                            </script>   
+                            <%
                         }
                         else {
                             java.sql.Connection conn = null;
@@ -62,11 +69,11 @@
         
                                 //connect to the database
                                 conn=java.sql.DriverManager.getConnection(mysURL,sysprops);
-                                System.out.println("Connected successfully to database using JConnectwereterte");
+                                System.out.println("Connected successfully to database using JConnect");
             
                                 conn.setAutoCommit(false);
                                 java.sql.Statement stmt1=conn.createStatement();
-                                java.sql.ResultSet rs = stmt1.executeQuery("SELECT * FROM Employee E, Person P WHERE P.SSN = E.EmployeeID AND E.UserID='"+userID+"'");
+                                java.sql.ResultSet rs = stmt1.executeQuery("SELECT * FROM Employee E, Person P WHERE P.SSN = E.EmployeeID AND E.EmployeeID='"+ssn+"'");
                     
                                 if(rs.next()) {
       

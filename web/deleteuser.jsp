@@ -37,8 +37,12 @@
                 stmt1.close();
                 conn.commit();
                 %>
-                User has been deleted!
-                <a href="login.jsp"><font color="Blue">Home</font></a>
+                <script type="text/javascript">
+                    function goBack() {
+                        history.go(-1);
+                    }
+                    window.onload = goBack();
+                </script>   
                 <%
             }
             catch(Exception e) {
@@ -57,8 +61,12 @@
                 stmt1.close();
                 conn.commit();
                 %>
-                User has been deleted!
-                <a href="login.jsp"><font color="Blue">Home</font></a>
+                <script type="text/javascript">
+                    function goBack() {
+                        history.go(-1);
+                    }
+                    window.onload = goBack();
+                </script>    
                 <%
             }
             catch(Exception e) {

@@ -54,7 +54,14 @@
                     stmt1.close();
                     stmt2.close();
                     conn.commit();
-                    response.sendRedirect("managerdashboard.jsp");
+                    %>
+                    <script type="text/javascript">
+                        function goBack() {
+                            history.go(-1);
+                        }
+                        window.onload = goBack();
+                    </script>  
+                    <%
                 }
                 catch(Exception e) {
                     conn.rollback();
