@@ -54,7 +54,6 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th><input id="selectAll" type="checkbox" aria-label="..."></th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>

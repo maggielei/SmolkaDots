@@ -29,3 +29,4 @@ function showEditUser() {
 function hideEditUser() {
     $(".editUser").hide("fast");
 }
+
