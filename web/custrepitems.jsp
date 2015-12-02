@@ -39,6 +39,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="custrepdashboard.jsp">Customers</a></li>
+                        <li><a href="custrepemployeelist.jsp">Employees</a></li>
                         <li class="active"><a>Items<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
