@@ -34,11 +34,6 @@
               <a href="index.htm" class="navbar-brand">Smolka Dots</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                  <li><a href="signup.jsp">Sign Up</a></li>
-                <li><a href="login.jsp">Login</a></li>
-                <li><a href="">Contact</a></li>
-              </ul>
             </div><!--/.nav-collapse -->
           </div>
         </nav>   

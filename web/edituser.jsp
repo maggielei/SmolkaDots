@@ -54,10 +54,7 @@
                     stmt1.close();
                     stmt2.close();
                     conn.commit();
-                    %>
-                    User has been edited!
-                    <a href="managerdashboard.jsp"><font color="Blue">Back to Dashboard</font></a>
-                    <%
+                    response.sendRedirect("managerdashboard.jsp");
                 }
                 catch(Exception e) {
                     conn.rollback();

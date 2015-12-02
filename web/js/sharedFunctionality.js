@@ -21,12 +21,12 @@ function hideDeleteUserForm() {
 }
 
 //SHOW EDIT USER DROPDOWN
-function showEditUser() {
+function showEditUserForm() {
     $(".editUser").show("fast");
 }
 
 // HIDE EDIT USER DROPDOWN
-function hideEditUser() {
+function hideEditUserForm() {
     $(".editUser").hide("fast");
 }
 
