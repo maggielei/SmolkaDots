@@ -1,6 +1,14 @@
 <%
-    String custRepSSN = request.getParameter("ssn");
-      
+    String custRepSSN = null;
+    String custSSN = null;
+    String position = request.getParameter("position");
+    if(position.equalsIgnoreCase("Customer_Representative")){
+        custRepSSN = request.getParameter("ssn");
+    }
+    else{
+        custSSN = request.getParameter("ssn");
+    }
+    
     String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
     String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";  
     String mysUserID = "yromero"; 
@@ -22,10 +30,30 @@
 
         java.sql.Statement stmt1 = conn.createStatement();
 
-        if(!custRepSSN.isEmpty()) {
+        if(custRepSSN != null) {
             try {
                 stmt1.executeUpdate("DELETE Person, Employee FROM Person INNER JOIN Employee "
                         + "WHERE Person.SSN = Employee.EmployeeID AND Person.SSN = '"+custRepSSN+"'");
+                stmt1.close();
+                conn.commit();
+                %>
+                User has been deleted!
+                <a href="login.jsp"><font color="Blue">Home</font></a>
+                <%
+            }
+            catch(Exception e) {
+                conn.rollback();
+                e.printStackTrace();
+                out.print("There is an error with the values you are trying to insert. Please see the description below and try again.");
+                out.print("<BR>");
+                out.print("<BR>");
+                out.print(e.toString()); 
+            }
+        }
+        else{
+            try {
+                stmt1.executeUpdate("DELETE Person, Customer FROM Person INNER JOIN Customer "
+                        + "WHERE Person.SSN = Customer.CustomerSSN AND Person.SSN = '"+custSSN+"'");
                 stmt1.close();
                 conn.commit();
                 %>

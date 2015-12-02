@@ -121,7 +121,10 @@
                     <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
                         <label for="inputSSN" class="sr-only">SSN</label>
                         <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
-                        
+                       
+                        <label for="inputPosition" class="sr-only">Position</label>
+                        <input type="position" name="position" id="position" class="form-control" value="Customer_Representative" readonly>
+                            
                         <button type="button" class="btn btn-default btn-primary" onclick="return document.deleteUserForm.submit();">
                             <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                         </button>

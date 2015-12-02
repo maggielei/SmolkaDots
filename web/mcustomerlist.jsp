@@ -45,19 +45,89 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    
+
                     <!--LOAD CUSTOMER INFO INTO TABLES-->
                     <h3 class="sub-header">Customers</h3><br>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showAddUserForm()">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                     </button>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showDeleteUserForm()">
                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                     </button>
                     <button type="button" class="btn btn-default btn-primary">
                         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Edit
                     </button>
-                    
+
+                    <!--ADD CUSTOMER FORM-->
+                    <div class="addUserForm">
+                        <form class="form-inline" name="userform" action="addnewuser.jsp" method="post">
+                            <label for="inputSSN" class="sr-only">Customer SSN</label>
+                            <input type="custssn" name="custssn" id="custssn" class="form-control" placeholder="Social Security #" required>
+
+                            <label for="inputId" class="sr-only">Customer ID</label>
+                            <input type="custid" name="custid" id="custid" class="form-control" placeholder="CustomerID" required>
+
+                            <label for="inputFirstName" class="sr-only">First Name</label>
+                            <input type="firstName" name="custfirstname" id="firstName" class="form-control" placeholder="First Name" required>
+
+                            <label for="inputLastName" class="sr-only">Last Name</label>
+                            <input type="lastName" name="custlastname" id="lastName" class="form-control" placeholder="Last Name" required>
+
+                            <label for="inputAddress" class="sr-only">Address</label>
+                            <input type="address" name="custaddress" id="address" class="form-control" placeholder="Address" required>
+
+                            <label for="inputCity" class="sr-only">City</label>
+                            <input type="city" name="custcity" id="city" class="form-control" placeholder="City" required>
+
+                            <label for="inputState" class="sr-only">State</label>
+                            <input type="state" name="custstate" id="state" class="form-control" placeholder="State" required>
+
+                            <label for="inputZip" class="sr-only">Zip Code</label>
+                            <input type="custzipCode" name="custzipcode" id="custzipCode" class="form-control" placeholder="Zip Code" required>
+
+                            <label for="inputTelephone" class="sr-only">Telephone</label>
+                            <input type="telephone" name="custtelephone" id="telephone" class="form-control" placeholder="Telephone #" required>
+
+                            <label for="inputZip" class="sr-only">Credit Card</label>
+                            <input type="creditCard" name="creditcard" id="creditCard" class="form-control" placeholder="Credit Card #" required>
+
+                            <label for="inputEmail" class="sr-only">Email Address</label>
+                            <input type="emailAddress" name="custemail" id="emailAddress" class="form-control" placeholder="Email Address" required>
+
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" name="custpassword" id="password" class="form-control" placeholder="Password" required>
+                            
+                            <label for="inputPosition" class="sr-only">Position</label>
+                            <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
+
+                            <button type="button" class="btn btn-default btn-primary" type="submit" onclick="return document.userform.submit();">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
+                            </button>
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideAddUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END ADD USER FORM-->
+                    <!--START DELETE USER FORM-->
+                    <div class="deleteUserForm">
+                        <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
+                            <label for="inputSSN" class="sr-only">SSN</label>
+                            <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
+
+                            <label for="inputPosition" class="sr-only">Position</label>
+                            <input type="position" name="position" id="position" class="form-control" value="Customer" readonly>
+                            
+                            <button type="button" class="btn btn-default btn-primary" onclick="return document.deleteUserForm.submit();">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
+                            </button>
+                            
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideDeleteUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END DELETE USER FORM-->
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -79,64 +149,62 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                            <%              
-                                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/malei"; 
-                                String mysUserID = "malei"; 
-                                String mysPassword = "108790364";
 
-                                java.sql.Connection conn = null;
-                                    
-                                try {
-                                    Class.forName(mysJDBCDriver).newInstance();
-                                    java.util.Properties sysprops = System.getProperties();
-                                    sysprops.put("user", mysUserID);
-                                    sysprops.put("password", mysPassword);
-
-                                    //connect to the database
-                                    conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
-                                    System.out.println("Connected successfully to database using JConnect");
-                                        
-                                    Statement statement = conn.createStatement() ;
-                                    ResultSet resultset = statement.executeQuery("SELECT P.SSN, C.CustomerID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, C.CreditCardNum, C.Rating FROM Person P, Customer C WHERE P.SSN = C.CustomerSSN");
-
-                                    while(resultset.next()) {
-                                %>
-                                    <tr>
-                                        <td><%=resultset.getString(1)%></td>
-                                        <td><%=resultset.getString(2)%></td>
-                                        <td><%=resultset.getString(3)%></td>
-                                        <td><%=resultset.getString(4)%></td>
-                                        <td><%=resultset.getString(5)%></td>
-                                        <td><%=resultset.getString(6)%></td>
-                                        <td><%=resultset.getString(7)%></td>
-                                        <td><%=resultset.getString(8)%></td>
-                                        <td><%=resultset.getString(9)%></td>
-                                        <td><%=resultset.getString(10)%></td>
-                                        <td><%=resultset.getString(11)%></td>
-                                        <td><%=resultset.getString(12)%></td>  
-                                    </tr>
                                 <%
-                                    }
-                                }
-                                catch(Exception e) {
-                                    e.printStackTrace();
-                                    out.print(e.toString());
-                                }
-                                finally {
+                                    String mysJDBCDriver = "com.mysql.jdbc.Driver";
+                                    String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
+                                    String mysUserID = "yromero";
+                                    String mysPassword = "109210768";
+
+                                    java.sql.Connection conn = null;
+
                                     try {
-                                        conn.close();
-                                    }   
-                                    catch(Exception ee){
-                                        {};
+                                        Class.forName(mysJDBCDriver).newInstance();
+                                        java.util.Properties sysprops = System.getProperties();
+                                        sysprops.put("user", mysUserID);
+                                        sysprops.put("password", mysPassword);
+
+                                        //connect to the database
+                                        conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                        System.out.println("Connected successfully to database using JConnect");
+
+                                        Statement statement = conn.createStatement();
+                                        ResultSet resultset = statement.executeQuery("SELECT P.SSN, C.CustomerID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, C.CreditCardNum, C.Rating FROM Person P, Customer C WHERE P.SSN = C.CustomerSSN");
+
+                                        while (resultset.next()) {
+                                %>
+                                <tr>
+                                    <td><%=resultset.getString(1)%></td>
+                                    <td><%=resultset.getString(2)%></td>
+                                    <td><%=resultset.getString(3)%></td>
+                                    <td><%=resultset.getString(4)%></td>
+                                    <td><%=resultset.getString(5)%></td>
+                                    <td><%=resultset.getString(6)%></td>
+                                    <td><%=resultset.getString(7)%></td>
+                                    <td><%=resultset.getString(8)%></td>
+                                    <td><%=resultset.getString(9)%></td>
+                                    <td><%=resultset.getString(10)%></td>
+                                    <td><%=resultset.getString(11)%></td>
+                                    <td><%=resultset.getString(12)%></td>  
+                                </tr>
+                                <%
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        out.print(e.toString());
+                                    } finally {
+                                        try {
+                                            conn.close();
+                                        } catch (Exception ee) {
+                                            {
+                                            };
+                                        }
                                     }
-                                } 
-                            %>
+                                %>
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <h3 class="sub-header">Revenue Generated</h3><br>
                     <div class="table-responsive">
                         <table class="table table-striped">
