@@ -41,7 +41,8 @@
                         <li><a href="customerdashboard.jsp">Items</a></li>
                         <li><a href="customersearch.jsp">Search</a></li>
                         <li class="active"><a>Bid History<span class="sr-only">(current)</span></a>
-                        <li><a href="auctionhistory.jsp">Your Auctions</a></li>
+                        <li><a href="auctionhistory.jsp">Auction History</a></li>
+                        <li><a href="customersuggestions.jsp">Item Suggestions</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

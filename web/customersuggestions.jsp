@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Search Results</title>
+        <title>Item Suggestions</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +18,7 @@
         <!-- Custom styles for this template -->
         <link href="css/dashboard.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
-    </head>
+    </head> 
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -39,16 +38,17 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="customerdashboard.jsp">Items</a></li>
-                        <li class="active"><a>Search</a><span class="sr-only">(current)</span></li>
+                        <li><a href="customersearch.jsp">Search</a></li>
                         <li><a href="bidhistory.jsp">Bid History</a>
-                        <li><a href="auctionhistory.jsp">Your Auctions</a></li>
-                        <li><a href="customersuggestions.jsp">Item Suggestions</a></li>
+                        <li><a href="auctionhistory.jsp">Auction History</a></li>
+                        <li class="active"><a>Item Suggestions</a><span class="sr-only">(current)</span></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
                     <!--LOAD ITEM INFO INTO TABLES-->
-                    <h3 class="sub-header">Search Results</h3><br>
+                    <h3 class="sub-header">Item Suggestions</h3><br>
+
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -56,25 +56,25 @@
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th>Item ID</th>
-                                    <th>Name</th>
+                                    <th>Item Type</th>
+                                    <th>Item Name</th>
+                                    <th>Item Description</th>
+                                    <th>Item Year</th>
                                     <th>Auction ID</th>
-                                    <th>Bid Increment</th>
-                                    <th>Minimum Bid</th>
-                                    <th>Copies Sold</th>
-                                    <th>Monitor</th>
+                                    <th>Expiration Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                    String itemtype = request.getParameter("itemtype");
+                                    String userid = session.getAttribute("login").toString();
 
                                     String mysJDBCDriver = "com.mysql.jdbc.Driver";
                                     String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
                                     String mysUserID = "yromero";
                                     String mysPassword = "109210768";
 
-                                    if (itemtype == null) {
-                                        response.sendRedirect("customersearch.jsp");
+                                    if (userid == null) {
+                                        response.sendRedirect("customersuggestions.jsp");
                                     } else {
                                         java.sql.Connection conn = null;
                                         try {
@@ -90,10 +90,16 @@
                                             conn.setAutoCommit(false);
 
                                             java.sql.Statement stmt1 = conn.createStatement();
-                                            java.sql.ResultSet rs = stmt1.executeQuery("SELECT I.ItemID,"
-                                                    + " I.Name, A.AuctionID, A.BidIncrement, A.MinimumBid,"
-                                                    + " A.CopiesSold, A.Monitor"
-                                                    + " FROM Auction A, Item I WHERE A.ItemID = I.ItemID AND I.Type = '" + itemtype + "'");
+                                            java.sql.Statement stmt2 = conn.createStatement();
+                                            java.sql.Statement stmt3 = conn.createStatement();
+                                            stmt3.execute("DROP VIEW IF EXISTS CustomerPurchaseTypes;");
+                                            stmt2.execute("CREATE VIEW CustomerPurchaseTypes AS"
+                                                    + " SELECT I.Type FROM Item I, Auction A, Bid B, Post P"
+                                                    + " WHERE I.ItemID = A.ItemID AND A.AuctionID = B.AuctionID AND P.ExpireDate < NOW()"
+                                                    + " AND A.AuctionID = P.AuctionID AND B.WinningBid IS NOT NULL AND B.CurrentWinner = '"+userid+"';");
+                                            java.sql.ResultSet rs = stmt1.executeQuery("SELECT I.ItemID, I.Type, I.Name, I.Description, I.Year, A.AuctionID, P.ExpireDate"
+                                                    + " FROM CustomerPurchaseTypes C, Item I, Post P, Auction A WHERE"
+                                                    + " C.Type = I.Type AND P.AuctionID = A.AuctionID AND A.ItemID = I.ItemID;");
                                             while (rs.next()) {
                                 %>
                                 <tr>
@@ -106,6 +112,12 @@
                                     <td><%=rs.getString(7)%></td>
                                 </tr>
                                 <%
+                                            }
+                                            rs.last();
+                                            if(rs.getRow() == 0){
+                                            %>
+                                                <div class="alert alert-info" role="alert">You have no item suggestions.</div>
+                                            <%
                                             }
                                         } catch (Exception e) {
                                             e.printStackTrace();
@@ -123,9 +135,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" class="btn btn-default btn-primary" onclick="location.href = 'customersearch.jsp';">
-                        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>&nbsp;Back
-                    </button>
                 </div>
             </div>
         </div>
@@ -138,3 +147,4 @@
         <script src="js/sharedFunctionality.js"></script>
     </body>
 </html>
+

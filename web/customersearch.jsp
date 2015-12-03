@@ -41,7 +41,8 @@
                         <li><a href="customerdashboard.jsp">Items</a></li>
                         <li class="active"><a>Search<span class="sr-only">(current)</span></a></li>
                         <li><a href="bidhistory.jsp">Bid History</a>
-                        <li><a href="auctionhistory.jsp">Your Auctions</a></li>
+                        <li><a href="auctionhistory.jsp">Auction History/a></li>
+                        <li><a href="customersuggestions.jsp">Item Suggestions</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -58,14 +59,6 @@
                         </button>
                     </form><br>
 
-                    <form class="form-inline" name="itemid" action="searchresults.jsp" method="post">
-                        <h4>Item ID</h4><input id="itemid" name="itemid" class="form-control" placeholder="Item ID" required>
-
-                        <button type="submit" class="btn btn-default btn-primary">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
-                        </button>
-                    </form><br>
-
                     <form class="form-inline" name="itemtype" action="searchitemtype.jsp" method="post">
                         <h4>Item Type</h4><input id="itemtype" name="itemtype" class="form-control" placeholder="Item Type" required>
 
@@ -74,7 +67,7 @@
                         </button>
                     </form><br>
 
-                    <form class="form-inline" name="itemname" action="searchresults.jsp" method="post">
+                    <form class="form-inline" name="itemname" action="searchitemname.jsp" method="post">
                         <h4>Item Name</h4><input id="itemname" name="itemname" class="form-control" placeholder="Item Name" required>
 
                         <button type="submit" class="btn btn-default btn-primary">

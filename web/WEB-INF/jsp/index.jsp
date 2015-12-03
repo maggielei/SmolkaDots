@@ -33,7 +33,7 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                  <li><a href="signup.jsp">Sign Up</a></li>
+                <li><a href="signup.jsp">Sign Up</a></li>
                 <li><a href="login.jsp">Login</a></li>
                 <li><a href="">Contact</a></li>
               </ul>
