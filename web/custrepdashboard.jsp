@@ -61,7 +61,7 @@
                     <button type="button" class="btn btn-default btn-primary" onclick="showDeleteUserForm()">
                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
                     </button>
-                    <button type="button" class="btn btn-default btn-primary">
+                    <button type="button" class="btn btn-default btn-primary" onclick="showEditUserForm()">
                         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;Edit
                     </button>
                     <!--ADD CUSTOMER FORM-->
@@ -134,6 +134,21 @@
                         </form>
                     </div>
                     <!--END DELETE USER FORM-->
+                    <!--START EDIT USER FORM-->
+                    <div class="editUser">
+                        <form class="form-inline" name="editCustomerForm" action="editcustomerform.jsp" method="post">
+                            <label>Enter the SSN to edit:<br></label>
+                            <input id="ssn" name="ssn" class="form-control" placeholder="Social Security #" required>
+
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Edit
+                            </button>
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideEditUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END EDIT USER FORM-->
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
