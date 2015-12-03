@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Items Listing</title>
+        <title>Sales Report</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,37 +46,30 @@
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     
                     <!--LOAD ITEM INFO INTO TABLES-->
-                    <h3 class="sub-header">Sales Report</h3><br>
+                    <h3 class="sub-header">Get Sales Report By..</h3><br>
+                        <form class="form-inline" action="msalesbymonth.jsp" method="post">
+                            <input id="month" name="month" class="form-control" placeholder="Month (1-12)" required>
+
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
+                            </button>
+                        </form><br>
                     
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <!--11 COLUMNS-->
-                                    <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th>Name</th>
-                                    <th>Poster</th>
-                                    <th>Type</th>
-                                    <th>Year</th>
-                                    <th>Copies Available</th>
-                                    <th>Open Bid</th>
-                                    <th>Bid Increment</th>
-                                    <th>Reserve Price</th>
-                                    <th>Open Date</th>
-                                    <th>Close Time/Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <form class="form-inline" action="msalesbycust.jsp" method="post">
+                            <input id="custid" name="custid" class="form-control" placeholder="Customer ID" required>
+
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
+                            </button>
+                        </form><br>
+                        
+                        <form class="form-inline" action="msalesbyitem.jsp" method="post">
+                            <input id="itemname" name="itemname" class="form-control" placeholder="Item Name" required>
+
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
+                            </button>
+                        </form>
                 </div>
             </div>
         </div>
