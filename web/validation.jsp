@@ -1,7 +1,7 @@
 <%
     if((request.getParameter("action")!= null)&& (request.getParameter("action").trim().equals("logout"))) {
         session.putValue("login","");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index.htm");
         return;
     }
     String username = request.getParameter("userid");
@@ -14,7 +14,7 @@
     session.putValue("login","");
     if ((username!=null) &&(userpasswd!=null)) {
         if (username.trim().equals("") || userpasswd.trim().equals("")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.htm");
         }
         else {
             java.sql.Connection conn = null;

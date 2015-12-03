@@ -36,6 +36,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="signup.jsp">Sign Up</a></li>
                         <li><a href="login.jsp">Login</a></li>
+                        <li><a href="help.jsp">Help</a></li>
                         <li><a href="">Contact</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->

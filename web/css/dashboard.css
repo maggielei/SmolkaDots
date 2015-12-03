@@ -121,6 +121,6 @@ body {
 }
 #images {
     padding-top:20px;
-    border: 2px dashed #97d0c6;
-    border-radius: 5px;
+    border-bottom: 3px solid #97d0c6;
+    margin-bottom:20px;
 }

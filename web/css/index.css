@@ -55,3 +55,23 @@ body {
     padding-bottom: 3%;
     margin-bottom: -10%;
 }
+#centerinfo {
+    margin-top: 10%;
+    border: 2px solid #97d0c6;
+    padding: 20px;
+    border-radius: 5px;
+    height: 100%;
+    width: 80%;
+}
+#centerinfo p{
+    margin-bottom:20px;
+}
+#centerinfo h2{
+    text-align: center;
+}
+#centerinfo h3{
+    text-align: center;
+    border-bottom: 2px dashed #97d0c6;
+    border-top: 2px dashed #97d0c6;
+    padding: 20px;
+}

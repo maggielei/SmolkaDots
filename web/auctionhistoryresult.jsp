@@ -71,7 +71,7 @@
                                     <th>Monitor</th>
                                     <th>Bid Time</th>
                                     <th>Bid Price</th>
-                                    <th>Current Winner</th>
+                                    <th>Current Winner at Bid Time</th>
                                 </tr>
                             </thead>
                             <tbody>

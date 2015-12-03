@@ -82,11 +82,12 @@
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
                                     <th>Item ID</th>
                                     <th>Name</th>
-                                    <th>Poster</th>
+                                    <th>Customer ID</th>
                                     <th>Type</th>
                                     <th>Year</th>
                                     <th>Copies Available</th>
-                                    <th>Open Bid</th>
+                                    <th>Copies Sold</th>
+                                    <th>Minimum Bid</th>
                                     <th>Bid Increment</th>
                                     <th>Reserve Price</th>
                                     <th>Open Date</th>
@@ -115,7 +116,7 @@
 
                                     Statement statement = conn.createStatement() ;
                                     ResultSet resultset = statement.executeQuery("SELECT I.ItemID, I.Name, P.CustomerID, I.Type, "
-                                        + "I.Year, I.NumCopies, A.MinimumBid, A.BidIncrement, "
+                                        + "I.Year, I.NumCopies, A.CopiesSold, A.MinimumBid, A.BidIncrement, "
                                         + "A.ReservePrice, P.PostDate, P.ExpireDate FROM Item I, Post P, Auction A "
                                         + "WHERE A.ItemID = I.ItemID AND A.AuctionID = P.AuctionID");
                 
@@ -134,6 +135,7 @@
                                     <td><%=resultset.getString(9)%></td>
                                     <td><%=resultset.getString(10)%></td>
                                     <td><%=resultset.getString(11)%></td> 
+                                    <td><%=resultset.getString(12)%></td> 
                                 </tr>
                             <%
                                     }        
