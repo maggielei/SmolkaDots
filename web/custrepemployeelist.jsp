@@ -101,7 +101,12 @@
                                     System.out.println("Connected successfully to database using JConnect");
 
                                     Statement statement = conn.createStatement();
-                                    ResultSet resultset = statement.executeQuery("SELECT P.SSN, E.UserID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
+                                    ResultSet resultset = statement.executeQuery("SELECT P.SSN,"
+                                            + " E.UserID, P.FirstName, P.LastName, P.Address,"
+                                            + " P.City, P.State, P.ZipCode, P.Telephone,"
+                                            + " P.Email, E.StartDate, E.Level,"
+                                            + " E.Position FROM Person P, Employee E"
+                                            + " WHERE P.SSN = E.EmployeeID");
 
                                     while (resultset.next()) {
 
@@ -117,9 +122,9 @@
                                 <td><%=resultset.getString(8)%></td>
                                 <td><%=resultset.getString(9)%></td>
                                 <td><%=resultset.getString(10)%></td>
+                                <td><%=resultset.getString(11)%></td>
                                 <td><%=resultset.getString(12)%></td>
                                 <td><%=resultset.getString(13)%></td>
-                                <td><%=resultset.getString(14)%></td>
                             </tr>    
                             <%
                                     }
