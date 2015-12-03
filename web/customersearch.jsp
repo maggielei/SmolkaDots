@@ -45,10 +45,10 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    
+
                     <!--LOAD ITEM INFO INTO TABLES-->
                     <h3 class="sub-header">Search Items By..</h3><br>
-                    
+
                     <!--INPUT BOXES-->
                     <form class="form-inline" name="userid" action="searchsellerid.jsp" method="post">
                         <h4>Seller ID</h4><input id="userid" name="userid" class="form-control" placeholder="User ID" required>
@@ -57,7 +57,7 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
-        
+
                     <form class="form-inline" name="itemid" action="searchresults.jsp" method="post">
                         <h4>Item ID</h4><input id="itemid" name="itemid" class="form-control" placeholder="Item ID" required>
 
@@ -65,7 +65,7 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
-                    
+
                     <form class="form-inline" name="itemtype" action="searchitemtype.jsp" method="post">
                         <h4>Item Type</h4><input id="itemtype" name="itemtype" class="form-control" placeholder="Item Type" required>
 
@@ -73,7 +73,7 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
-                    
+
                     <form class="form-inline" name="itemname" action="searchresults.jsp" method="post">
                         <h4>Item Name</h4><input id="itemname" name="itemname" class="form-control" placeholder="Item Name" required>
 

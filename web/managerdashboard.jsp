@@ -106,163 +106,203 @@
 
                             <label for="inputPassword" class="sr-only">Password</label>
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-                            
+
                             <button type="submit" class="btn btn-default btn-primary">
                                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;Add
                             </button>
                             <button type="button" class="btn btn-default btn-primary" onclick="hideAddUserForm()">
                                 <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
                             </button>
-                    </form>
-                </div>
-                <!--END EMPLOYEE FORM-->
-                <!--START DELETE USER FORM-->
-                <div class="deleteUserForm">
-                    <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
-                        <label>Enter the SSN to delete:<br></label>
-                        <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
-                       
-                        <label for="inputPosition" class="sr-only">Position</label>
-                        <input type="position" name="position" id="position" class="form-control" value="Customer_Representative" readonly>
-                            
-                        <button type="submit" class="btn btn-default btn-primary">
-                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
-                        </button>
-                        <button type="button" class="btn btn-default btn-primary" onclick="hideDeleteUserForm()">
-                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
-                        </button>
-                    </form>
-                </div>
-                <!--END DELETE USER FORM-->
-                <!--START EDIT USER FORM-->
-                <div class="editUser">
-                    <form class="form-inline" name="editUserForm" action="edituserform.jsp" method="post">
-                        <label>Enter the SSN to edit:<br></label>
-                        <input id="ssn" name="ssn" class="form-control" placeholder="Social Security #" required>
-                            
-                        <button type="submit" class="btn btn-default btn-primary">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Edit
-                        </button>
-                        <button type="button" class="btn btn-default btn-primary" onclick="hideEditUserForm()">
-                            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
-                        </button>
-                    </form>
-                </div>
-                <!--END EDIT USER FORM-->
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <!--11 COLUMNS-->
-                                <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                <th>SSN</th>
-                                <th>UserID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Address</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Zip Code</th>
-                                <th>Telephone</th>
-                                <th>Email</th>
-                                <th>Start Date</th>
-                                <th>Hourly Rate</th>
-                                <th>Level</th>
-                                <th>Position</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                        </form>
+                    </div>
+                    <!--END EMPLOYEE FORM-->
+                    <!--START DELETE USER FORM-->
+                    <div class="deleteUserForm">
+                        <form class="form-inline" name="deleteUserForm" action="deleteuser.jsp" method="post">
+                            <label>Enter the SSN to delete:<br></label>
+                            <input id="ssn" name = "ssn" class="form-control" placeholder="Social Security #" required>
 
-                            <%
-                                String mysJDBCDriver = "com.mysql.jdbc.Driver";
-                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
-                                String mysUserID = "yromero";
-                                String mysPassword = "109210768";
+                            <label for="inputPosition" class="sr-only">Position</label>
+                            <input type="position" name="position" id="position" class="form-control" value="Customer_Representative" readonly>
 
-                                java.sql.Connection conn = null;
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Delete
+                            </button>
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideDeleteUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END DELETE USER FORM-->
+                    <!--START EDIT USER FORM-->
+                    <div class="editUser">
+                        <form class="form-inline" name="editUserForm" action="edituserform.jsp" method="post">
+                            <label>Enter the SSN to edit:<br></label>
+                            <input id="ssn" name="ssn" class="form-control" placeholder="Social Security #" required>
 
-                                try {
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Edit
+                            </button>
+                            <button type="button" class="btn btn-default btn-primary" onclick="hideEditUserForm()">
+                                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Hide
+                            </button>
+                        </form>
+                    </div>
+                    <!--END EDIT USER FORM-->
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <!--11 COLUMNS-->
+                                    <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
+                                    <th>SSN</th>
+                                    <th>UserID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip Code</th>
+                                    <th>Telephone</th>
+                                    <th>Email</th>
+                                    <th>Start Date</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Level</th>
+                                    <th>Position</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    Class.forName(mysJDBCDriver).newInstance();
-                                    java.util.Properties sysprops = System.getProperties();
-                                    sysprops.put("user", mysUserID);
-                                    sysprops.put("password", mysPassword);
+                                <%
+                                    String mysJDBCDriver = "com.mysql.jdbc.Driver";
+                                    String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
+                                    String mysUserID = "yromero";
+                                    String mysPassword = "109210768";
 
-                                    //connect to the database
-                                    conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
-                                    System.out.println("Connected successfully to database using JConnect");
+                                    java.sql.Connection conn = null;
 
-                                    Statement statement = conn.createStatement();
-                                    ResultSet resultset = statement.executeQuery("SELECT P.SSN, E.UserID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
-
-                                    while (resultset.next()) {
-
-                            %>
-                            <tr>
-                                <td><%=resultset.getString(1)%></td>
-                                <td><%=resultset.getString(2)%></td>
-                                <td><%=resultset.getString(3)%></td>
-                                <td><%=resultset.getString(4)%></td>
-                                <td><%=resultset.getString(5)%></td>
-                                <td><%=resultset.getString(6)%></td>
-                                <td><%=resultset.getString(7)%></td>
-                                <td><%=resultset.getString(8)%></td>
-                                <td><%=resultset.getString(9)%></td>
-                                <td><%=resultset.getString(10)%></td>
-                                <td><%=resultset.getString(11)%></td>
-                                <td>$<%=resultset.getString(12)%></td>
-                                <td><%=resultset.getString(13)%></td>
-                                <td><%=resultset.getString(14)%></td>
-                            </tr>    
-                            <%
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    out.print(e.toString());
-                                } finally {
                                     try {
-                                        conn.close();
-                                    } catch (Exception ee) {
-                                        {
-                                        };
+
+                                        Class.forName(mysJDBCDriver).newInstance();
+                                        java.util.Properties sysprops = System.getProperties();
+                                        sysprops.put("user", mysUserID);
+                                        sysprops.put("password", mysPassword);
+
+                                        //connect to the database
+                                        conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                        System.out.println("Connected successfully to database using JConnect");
+
+                                        Statement statement = conn.createStatement();
+                                        ResultSet resultset = statement.executeQuery("SELECT P.SSN, E.UserID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
+
+                                        while (resultset.next()) {
+                                %>
+                                <tr>
+                                    <td><%=resultset.getString(1)%></td>
+                                    <td><%=resultset.getString(2)%></td>
+                                    <td><%=resultset.getString(3)%></td>
+                                    <td><%=resultset.getString(4)%></td>
+                                    <td><%=resultset.getString(5)%></td>
+                                    <td><%=resultset.getString(6)%></td>
+                                    <td><%=resultset.getString(7)%></td>
+                                    <td><%=resultset.getString(8)%></td>
+                                    <td><%=resultset.getString(9)%></td>
+                                    <td><%=resultset.getString(10)%></td>
+                                    <td><%=resultset.getString(11)%></td>
+                                    <td>$<%=resultset.getString(12)%></td>
+                                    <td><%=resultset.getString(13)%></td>
+                                    <td><%=resultset.getString(14)%></td>
+                                </tr>    
+                                <%
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        out.print(e.toString());
+                                    } finally {
+                                        try {
+                                            conn.close();
+                                        } catch (Exception ee) {
+                                            {
+                                            };
+                                        }
                                     }
-                                }
-                            %>
-                        </tbody>
-                    </table>
-                </div>
-                <h3 class="sub-header">Revenue Generated</h3><br>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <!--11 COLUMNS-->
-                                <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                <th>SSN</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Revenue Generated</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>ipsum</td>
-                                <td>dolor</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="sub-header">Most Revenue Generated By:</h3><br>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <!--11 COLUMNS-->
+                                    <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
+                                    <th>SSN</th>
+                                    <th>User ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Position</th>
+                                    <th>Level</th>
+                                    <th>Revenue Generated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    conn = null;
+                                    try {
+
+                                        Class.forName(mysJDBCDriver).newInstance();
+                                        java.util.Properties sysprops = System.getProperties();
+                                        sysprops.put("user", mysUserID);
+                                        sysprops.put("password", mysPassword);
+
+                                        //connect to the database
+                                        conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                        System.out.println("Connected successfully to database using JConnect");
+
+                                        Statement statement = conn.createStatement();
+                                        ResultSet resultset = statement.executeQuery("SELECT E.EmployeeID,"
+                                                + " E.UserID, P.FirstName, P.LastName, E.Position, E.Level,"
+                                                + " MAX(G.RevenueGenerated) FROM GroupedMonitorRevs G,"
+                                                + " Employee E, Person P WHERE G.Monitor = E.EmployeeID"
+                                                + " AND E.EmployeeID = P.SSN;");
+                                        while (resultset.next()) {
+                                %>
+                                <tr>
+                                    <td><%=resultset.getString(1)%></td>
+                                    <td><%=resultset.getString(2)%></td>
+                                    <td><%=resultset.getString(3)%></td>
+                                    <td><%=resultset.getString(4)%></td>
+                                    <td><%=resultset.getString(5)%></td>
+                                    <td><%=resultset.getString(6)%></td>
+                                    <td><%=resultset.getString(7)%></td>
+                                </tr>
+                                <%
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        out.print(e.toString());
+                                    } finally {
+                                        try {
+                                            conn.close();
+                                        } catch (Exception ee) {
+                                            {
+                                            };
+                                        }
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sharedFunctionality.js"></script>
-</body>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sharedFunctionality.js"></script>
+    </body>
 </html>
