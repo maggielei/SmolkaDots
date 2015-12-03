@@ -29,7 +29,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">Smolka Dots | Manager View</a>
+                    <a class="navbar-brand">Smolka Dots</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -44,12 +44,12 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="managerdashboard.jsp">Employees</a></li>
-                        <li><a href="mcustomerlist.jsp">Customers</a></li>
-                        <li><a href="mitemlist.jsp">Items</a></li>
-                        <li><a href="msaleslist.jsp">Sales Report</a></li>
-                        <li><a href="mrevenuelist.jsp">Revenue Report</a></li>
-                        <li class="active"><a>Best Selling Items<span class="sr-only">(current)</span></a></li>
+                        <li><a href="customerdashboard.jsp">Items</a></li>
+                        <li><a>Search</a></li>
+                        <li><a href="bidhistory.jsp">Bid History</a>
+                        <li><a href="auctionhistory.jsp">Auction History</a></li>
+                        <li><a href="customersuggestions.jsp">Item Suggestions</a></li>
+                        <li class="active"><a>Best Selling Items</a><span class="sr-only">(current)</span></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
