@@ -48,7 +48,7 @@
                     
                     <!--LOAD ITEM INFO INTO TABLES-->
                     <h3 class="sub-header">Items Available</h3><br>
-                    <div class="row">
+                    <div class="row" id="images">
                       <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                           <img src="img/adele.png" alt="Adele-25">

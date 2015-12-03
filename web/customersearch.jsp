@@ -49,32 +49,33 @@
                     <!--LOAD ITEM INFO INTO TABLES-->
                     <h3 class="sub-header">Search Items By..</h3><br>
                     
-                    <form class="form-inline" name="item" action="deleteuser.jsp" method="post">
+                    <!--INPUT BOXES-->
+                    <form class="form-inline" name="userid" action="searchsellerid.jsp" method="post">
                         <h4>Seller ID</h4><input id="userid" name="userid" class="form-control" placeholder="User ID" required>
 
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
-                    <!--INPUT BOXES-->
-                    <form class="form-inline" name="item" action="deleteuser.jsp" method="post">
-                        <h4>Item ID</h4><input id="userid" name="userid" class="form-control" placeholder="Item ID" required>
+        
+                    <form class="form-inline" name="itemid" action="searchresults.jsp" method="post">
+                        <h4>Item ID</h4><input id="itemid" name="itemid" class="form-control" placeholder="Item ID" required>
 
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
                     
-                    <form class="form-inline" name="item" action="deleteuser.jsp" method="post">
-                        <h4>Item Type</h4><input id="userid" name="userid" class="form-control" placeholder="Item Type" required>
+                    <form class="form-inline" name="itemtype" action="searchitemtype.jsp" method="post">
+                        <h4>Item Type</h4><input id="itemtype" name="itemtype" class="form-control" placeholder="Item Type" required>
 
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
                         </button>
                     </form><br>
                     
-                    <form class="form-inline" name="item" action="deleteuser.jsp" method="post">
-                        <h4>Item Name</h4><input id="userid" name="userid" class="form-control" placeholder="Item Name" required>
+                    <form class="form-inline" name="itemname" action="searchresults.jsp" method="post">
+                        <h4>Item Name</h4><input id="itemname" name="itemname" class="form-control" placeholder="Item Name" required>
 
                         <button type="submit" class="btn btn-default btn-primary">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
