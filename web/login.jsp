@@ -53,7 +53,7 @@
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return javascript:myForm.submit();"> Log In</button>
+              <button class="btn btn-lg btn-primary btn-block" type="submit"> Log In</button>
             </form>
         </div> <!-- /container -->
     </body>

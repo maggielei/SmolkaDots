@@ -35,7 +35,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.htm">Logout</a></li>
-                        <li><a href="">Help</a></li>
+                        <li><a href="help.jsp">Help</a></li>
                     </ul>
                 </div>
             </div>

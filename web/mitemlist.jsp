@@ -32,6 +32,13 @@
                     </button>
                     <a class="navbar-brand">Smolka Dots | Manager View</a>
                 </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.htm">Logout</a></li>
+                        <li><a href="help.jsp">Help</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <div class="container-fluid">

@@ -32,6 +32,13 @@
                     </button>
                     <a class="navbar-brand">Smolka Dots</a>
                 </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.htm">Logout</a></li>
+                        <li><a href="help.jsp">Help</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <div class="container-fluid">
@@ -41,7 +48,7 @@
                         <li><a href="customerdashboard.jsp">Items</a></li>
                         <li class="active"><a>Search<span class="sr-only">(current)</span></a></li>
                         <li><a href="bidhistory.jsp">Bid History</a>
-                        <li><a href="auctionhistory.jsp">Auction History/a></li>
+                        <li><a href="auctionhistory.jsp">Auction History</a></li>
                         <li><a href="customersuggestions.jsp">Item Suggestions</a></li>
                     </ul>
                 </div>
