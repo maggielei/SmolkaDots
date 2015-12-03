@@ -43,6 +43,7 @@
                         <li><a href="custrepdashboard.jsp">Customers</a></li>
                         <li class="active"><a>Employees<span class="sr-only">(current)</span></a></li>
                         <li><a href="custrepitems.jsp">Items</a></li>
+                        <li><a href="custrepsuggestions.jsp">Item Suggestions</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
