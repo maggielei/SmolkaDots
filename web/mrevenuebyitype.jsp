@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Sales Report</title>
+        <title>Revenue Report</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,14 +40,14 @@
                         <li><a href="managerdashboard.jsp">Employees</a></li>
                         <li><a href="mcustomerlist.jsp">Customers</a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
-                        <li class="active"><a>Sales Report<span class="sr-only">(current)</span></a></li>
-                        <li><a href="mrevenuelist.jsp">Revenue Report</a></li>
+                        <li><a href="msaleslist.jsp">Sales Report</a></li>
+                        <li class="active"><a>Revenue Report<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
                     <!--LOAD ITEM INFO INTO TABLES-->
-                    <h3 class="sub-header">Sales Report By Month</h3><br>
+                    <h3 class="sub-header">Revenue Report By Item Type</h3><br>
 
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -55,24 +55,27 @@
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
-                                    <th>Auction ID</th>
                                     <th>Item ID</th>
-                                    <th>Monitor</th>
-                                    <th>Year</th>
+                                    <th>Customer ID (Seller)</th>
+                                    <th>Item Name</th>
+                                    <th>Item Description</th>
+                                    <th>Item Type</th>
+                                    <th>Item Year</th>
+                                    <th>Copies Sold</th>
                                     <th>Winning Bid Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                    String month = request.getParameter("month");
+                                    String itemtype = request.getParameter("itemtype");
 
                                     String mysJDBCDriver = "com.mysql.jdbc.Driver";
                                     String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
                                     String mysUserID = "yromero";
                                     String mysPassword = "109210768";
 
-                                    if (month == null) {
-                                        response.sendRedirect("msaleslist.jsp");
+                                    if (itemtype == null) {
+                                        response.sendRedirect("mrevenuelist.jsp");
                                     } else {
                                         java.sql.Connection conn = null;
                                         try {
@@ -88,12 +91,15 @@
                                             conn.setAutoCommit(false);
 
                                             java.sql.Statement stmt1 = conn.createStatement();
-                                            java.sql.ResultSet rs = stmt1.executeQuery("SELECT A.AuctionID,"
-                                                    + " A.ItemID, A.Monitor, YEAR(P.ExpireDate), B.WinningBid"
-                                                    + " AS YEAR FROM Post P, Auction A, Bid B WHERE"
-                                                    + " P.AuctionID = A.AuctionID AND B.AuctionID = A.AuctionID"
-                                                    + " AND MONTH(P.ExpireDate) = '"+month+"' AND B.WinningBid IS"
-                                                    + " NOT NULL AND P.ExpireDate < NOW();");
+                                            java.sql.ResultSet rs = stmt1.executeQuery("SELECT I.ItemID,"
+                                                    + " P.CustomerID AS Seller, I.Name, I.Description,"
+                                                    + " I.Type, I.Year, A.CopiesSold, SUM(B.WinningBid)"
+                                                    + " AS TotalRevenue FROM Auction A, Item I, Post P,"
+                                                    + " Bid B WHERE I.Type = '"+itemtype+"' AND"
+                                                    + " P.ExpireDate < NOW() AND"
+                                                    + " A.ItemID = I.ItemID AND"
+                                                    + " P.AuctionID = A.AuctionID AND"
+                                                    + " B.AuctionID = A.AuctionID;");
                                             while (rs.next()) {
                                 %>
                                 <tr>
@@ -102,6 +108,9 @@
                                     <td><%=rs.getString(3)%></td>
                                     <td><%=rs.getString(4)%></td>
                                     <td><%=rs.getString(5)%></td>
+                                    <td><%=rs.getString(6)%></td>
+                                    <td><%=rs.getString(7)%></td>
+                                    <td><%=rs.getString(8)%></td>
                                 </tr>
                                 <%
                                             }
@@ -120,8 +129,8 @@
                                 %>
                             </tbody>
                         </table>
-                    </div>   
-                    <button type="button" class="btn btn-default btn-primary" onclick="location.href = 'msaleslist.jsp';">
+                    </div>      
+                    <button type="button" class="btn btn-default btn-primary" onclick="location.href = 'mrevenuelist.jsp';">
                         <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>&nbsp;Back
                     </button>
                 </div>

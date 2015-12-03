@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel="icon" href="img/favicon.ico">
 
-        <title>Sales Report</title>
+        <title>Revenue Report</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,23 +40,15 @@
                         <li><a href="managerdashboard.jsp">Employees</a></li>
                         <li><a href="mcustomerlist.jsp">Customers</a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
-                        <li class="active"><a>Sales Report<span class="sr-only">(current)</span></a></li>
-                        <li><a href="mrevenuelist.jsp">Revenue Report</a></li>
+                        <li><a href="msaleslist.jsp">Sales Report</a></li>
+                        <li class="active"><a>Revenue Report<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     
                     <!--LOAD ITEM INFO INTO TABLES-->
-                    <h3 class="sub-header">Get Sales Report By..</h3><br>
-                        <form class="form-inline" action="msalesbymonth.jsp" method="post">
-                            <input id="month" name="month" class="form-control" placeholder="Month (1-12)" required>
-
-                            <button type="submit" class="btn btn-default btn-primary">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
-                            </button>
-                        </form><br>
-                    
-                        <form class="form-inline" action="msalesbycust.jsp" method="post">
+                    <h3 class="sub-header">Get Revenue Report By..</h3><br>
+                        <form class="form-inline" action="mrevenuebycust.jsp" method="post">
                             <input id="custid" name="custid" class="form-control" placeholder="Customer ID" required>
 
                             <button type="submit" class="btn btn-default btn-primary">
@@ -64,8 +56,16 @@
                             </button>
                         </form><br>
                         
-                        <form class="form-inline" action="msalesbyitem.jsp" method="post">
-                            <input id="itemname" name="itemname" class="form-control" placeholder="Item Name" required>
+                        <form class="form-inline" action="mrevenuebyiid.jsp" method="post">
+                            <input id="itemid" name="itemid" class="form-control" placeholder="Item ID" required>
+
+                            <button type="submit" class="btn btn-default btn-primary">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
+                            </button>
+                        </form><br>
+                        
+                        <form class="form-inline" action="mrevenuebyitype.jsp" method="post">
+                            <input id="itemtype" name="itemtype" class="form-control" placeholder="Item Type" required>
 
                             <button type="submit" class="btn btn-default btn-primary">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search

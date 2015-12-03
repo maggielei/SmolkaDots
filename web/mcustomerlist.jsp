@@ -42,6 +42,7 @@
                         <li class="active"><a href="#">Customers<span class="sr-only">(current)</span></a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
                         <li><a href="msaleslist.jsp">Sales Report</a></li>
+                        <li><a href="mrevenuelist.jsp">Revenue Report</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

@@ -41,6 +41,7 @@
                         <li><a href="mcustomerlist.jsp">Customers</a></li>
                         <li><a href="mitemlist.jsp">Items</a></li>
                         <li class="active"><a>Sales Report<span class="sr-only">(current)</span></a></li>
+                        <li><a href="mrevenuelist.jsp">Revenue Report</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -61,7 +62,7 @@
                                     <th>Item Description</th>
                                     <th>Item Year</th>
                                     <th>Copies Sold</th>
-                                    <th>Bid Price</th>
+                                    <th>Winning Bid Price</th>
                                 </tr>
                             </thead>
                             <tbody>
