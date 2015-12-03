@@ -193,8 +193,11 @@
                                         System.out.println("Connected successfully to database using JConnect");
 
                                         Statement statement = conn.createStatement();
-                                        ResultSet resultset = statement.executeQuery("SELECT P.SSN, E.UserID, P.FirstName, P.LastName, P.Address, P.City, P.State, P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate, E.Level, E.Position FROM Person P, Employee E WHERE P.SSN = E.EmployeeID");
-
+                                        ResultSet resultset = statement.executeQuery("SELECT P.SSN, E.UserID,"
+                                                + " P.FirstName, P.LastName, P.Address, P.City, P.State,"
+                                                + " P.ZipCode, P.Telephone, P.Email, E.StartDate, E.HourlyRate,"
+                                                + " E.Level, E.Position FROM Person P, Employee E WHERE"
+                                                + " P.SSN = E.EmployeeID ORDER BY P.LastName;");
                                         while (resultset.next()) {
                                 %>
                                 <tr>

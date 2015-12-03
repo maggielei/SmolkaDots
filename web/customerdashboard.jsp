@@ -45,33 +45,34 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    
+
                     <!--LOAD ITEM INFO INTO TABLES-->
                     <h3 class="sub-header">Items Available</h3><br>
                     <div class="row" id="images">
-                      <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                          <img src="img/adele.png" alt="Adele-25">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/adele.png" alt="Adele-25">
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                          <img src="img/LesPaul.jpg" alt="Les-Paul">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/LesPaul.jpg" alt="Les-Paul">
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                          <img src="img/titanic.jpg" alt="Titanic">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/titanic.jpg" alt="Titanic">
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    
+
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <!--11 COLUMNS-->
                                     <!--ROWS NEED TO BE FILLED IN USING JAVA CODE-->
+                                    <th>Auction ID</th>
                                     <th>Name</th>
                                     <th>Poster</th>
                                     <th>Type</th>
@@ -85,61 +86,61 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                            <%              
-                                String mysJDBCDriver = "com.mysql.jdbc.Driver"; 
-                                String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero"; 
-                                String mysUserID = "yromero"; 
-                                String mysPassword = "109210768";
-                
-                                java.sql.Connection conn = null;
-                                
-                                try {
-                                    Class.forName(mysJDBCDriver).newInstance();
-                                    java.util.Properties sysprops = System.getProperties();
-                                    sysprops.put("user", mysUserID);
-                                    sysprops.put("password", mysPassword);
-                            
-                                    //connect to the database
-                                    conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
-                                    System.out.println("Connected successfully to database using JConnect");
 
-                                    Statement statement = conn.createStatement() ;
-                                    ResultSet resultset = statement.executeQuery("SELECT I.Name, P.CustomerID, I.Type, "
-                                            + "I.Year, I.NumCopies, A.MinimumBid, A.BidIncrement, "
-                                            + "A.ReservePrice, P.PostDate, P.ExpireDate FROM Item I, Post P, Auction A "
-                                            + "WHERE A.ItemID = I.ItemID AND A.AuctionID = P.AuctionID");
-                
-                                    while(resultset.next()) {
-                                %>
-                                    <tr>
-                                        <td><%=resultset.getString(1)%></td>
-                                        <td><%=resultset.getString(2)%></td>
-                                        <td><%=resultset.getString(3)%></td>
-                                        <td><%=resultset.getString(4)%></td>
-                                        <td><%=resultset.getString(5)%></td>
-                                        <td><%=resultset.getString(6)%></td>
-                                        <td><%=resultset.getString(7)%></td>
-                                        <td><%=resultset.getString(8)%></td>
-                                        <td><%=resultset.getString(9)%></td>
-                                        <td><%=resultset.getString(10)%></td> 
-                                    </tr>
                                 <%
-                                    }
-                                }
-                                catch(Exception e) {
-                                    e.printStackTrace();
-                                    out.print(e.toString());
-                                }
-                                finally {
+                                    String mysJDBCDriver = "com.mysql.jdbc.Driver";
+                                    String mysURL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/yromero";
+                                    String mysUserID = "yromero";
+                                    String mysPassword = "109210768";
+
+                                    java.sql.Connection conn = null;
+
                                     try {
-                                        conn.close();
-                                    }   
-                                    catch(Exception ee){
-                                        {};
+                                        Class.forName(mysJDBCDriver).newInstance();
+                                        java.util.Properties sysprops = System.getProperties();
+                                        sysprops.put("user", mysUserID);
+                                        sysprops.put("password", mysPassword);
+
+                                        //connect to the database
+                                        conn = java.sql.DriverManager.getConnection(mysURL, sysprops);
+                                        System.out.println("Connected successfully to database using JConnect");
+
+                                        Statement statement = conn.createStatement();
+                                        ResultSet resultset = statement.executeQuery("SELECT A.AuctionID, I.Name,"
+                                                + " P.CustomerID, I.Type, I.Year, I.NumCopies, A.MinimumBid,"
+                                                + " A.BidIncrement, A.ReservePrice, P.PostDate, P.ExpireDate"
+                                                + " FROM Item I, Post P, Auction A WHERE A.ItemID = I.ItemID"
+                                                + " AND A.AuctionID = P.AuctionID");
+
+                                        while (resultset.next()) {
+                                %>
+                                <tr>
+                                    <td><%=resultset.getString(1)%></td>
+                                    <td><%=resultset.getString(2)%></td>
+                                    <td><%=resultset.getString(3)%></td>
+                                    <td><%=resultset.getString(4)%></td>
+                                    <td><%=resultset.getString(5)%></td>
+                                    <td><%=resultset.getString(6)%></td>
+                                    <td><%=resultset.getString(7)%></td>
+                                    <td><%=resultset.getString(8)%></td>
+                                    <td><%=resultset.getString(9)%></td>
+                                    <td><%=resultset.getString(10)%></td> 
+                                    <td><%=resultset.getString(11)%></td> 
+                                </tr>
+                                <%
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        out.print(e.toString());
+                                    } finally {
+                                        try {
+                                            conn.close();
+                                        } catch (Exception ee) {
+                                            {
+                                            };
+                                        }
                                     }
-                                } 
-                            %>
+                                %>
                             </tbody>
                         </table>
                     </div>
