@@ -39,7 +39,7 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="customerdashboard.jsp">Items</a></li>
-                        <li><a href="customersearch.jsp">Search</a></li>
+                        <li class="active"><a>Search</a><span class="sr-only">(current)</span></li>
                         <li><a href="bidhistory.jsp">Bid History</a>
                         <li><a href="auctionhistory.jsp">Your Auctions</a></li>
                     </ul>
